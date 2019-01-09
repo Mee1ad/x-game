@@ -1,0 +1,25 @@
+###env
+url = '192.168.1.95:8000'
+# url = 'localhost:8000'
+# url = 'https://XGame.pythonanywhere.com'
+accessToken = ''
+adminToken = ''
+###env
+
+# -------------- User --------------
+
+
+post( url + '/signup',
+	headers={'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest', 'device-id': 'myDeviceId'},
+ 	json={'phone': '090155184585'})
+
+get( url + '/activate?activation_code=844947',
+	headers={'device-id': 'myDeviceId'})
+
+post( url + '/profile',
+	headers={'device-id': 'myDeviceId'},
+ 	json={'username': '09015518443', 'email': 'mili@gmail.com', 'password':'12345', 'console': 'xbox'})
+
+post( url + '/signin',
+	headers={'device-id': 'myDeviceId'},
+ 	json={'username': 'mili', 'password': '12345'})
