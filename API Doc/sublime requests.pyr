@@ -1,6 +1,6 @@
 ###env
-url = '192.168.1.95:8000'
-# url = 'localhost:8000'
+# url = '192.168.1.95'
+url = 'localhost'
 # url = 'https://XGame.pythonanywhere.com'
 accessToken = ''
 adminToken = ''
@@ -9,17 +9,19 @@ adminToken = ''
 # -------------- User --------------
 
 
+post( url + '/login',
+	headers={'device-id': 'myDeviceId1'},
+ 	json={'phone': '09015518439'})
+
+post( url + '/activate',
+	headers={'device-id': 'myDeviceId1'},
+	json={'activationCode': '795153'})
+
 post( url + '/signup',
-	headers={'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest', 'device-id': 'myDeviceId'},
- 	json={'phone': '090155184585'})
+	headers={'device-id': 'myDeviceId1', 'security-code': 'myDeviceId1m'},
+ 	json={'fName': 'ali', 'lName': 'baghali', 'email': 'alibaghali@gmail.com', 'platform': 9})
 
-get( url + '/activate?activation_code=844947',
-	headers={'device-id': 'myDeviceId'})
 
-post( url + '/profile',
-	headers={'device-id': 'myDeviceId'},
- 	json={'username': '09015518443', 'email': 'mili@gmail.com', 'password':'12345', 'console': 'xbox'})
+post( url + '/cache',
+	json={'id': 1020})
 
-post( url + '/signin',
-	headers={'device-id': 'myDeviceId'},
- 	json={'username': 'mili', 'password': '12345'})
