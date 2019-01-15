@@ -1,2 +1,3 @@
 .idea/
 GameExchange/settings.py
+xgame/views/__pycache__/

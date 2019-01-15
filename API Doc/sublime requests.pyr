@@ -9,17 +9,19 @@ adminToken = ''
 # -------------- User --------------
 
 
-post( url + '/login',
-	headers={'device-id': 'myDeviceId1'},
+get( url + '/version_control') # 200 success
+
+post( url + '/login', # 200 success
+	headers={'device-id': 'myDeviceId'},
  	json={'phone': '09015518439'})
 
-post( url + '/activate',
-	headers={'device-id': 'myDeviceId1'},
-	json={'activationCode': '795153'})
+post( url + '/activate', # 200 success, 201 new user, 404 wrong code, 406 error
+	headers={'device-id': 'myDeviceId'},
+	json={'activationCode': '982458'})
 
-post( url + '/signup',
-	headers={'device-id': 'myDeviceId1', 'security-code': 'myDeviceId1m'},
- 	json={'fName': 'ali', 'lName': 'baghali', 'email': 'alibaghali@gmail.com', 'platform': 9})
+post( url + '/signup', # 200 success
+	headers={'device-id': 'myDeviceId'},
+ 	json={'fName': 'ali', 'lName': 'baghali', 'email': 'alibaghali@gmail.com', 'platform': 1})
 
 
 post( url + '/cache',
