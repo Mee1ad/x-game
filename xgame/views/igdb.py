@@ -3,9 +3,13 @@ import json
 from django.http import JsonResponse, HttpResponse
 from xgame.models import *
 from django.views import View
+from .Consts import Vars
+
+
 
 
 class Search(View):
+
     api_key = '5e69676036907c1ee9c1b528f87ba11e'
     image_url = 'https://images.igdb.com/igdb/image/upload/t_720p/'
     screenshot = 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/'
@@ -14,6 +18,7 @@ class Search(View):
     res = "nothing happened"
 
     def post(self, request):
+        print(Vars.ver)
         d = json.loads(request.body)
         id = d['id']
         self.search(id)
