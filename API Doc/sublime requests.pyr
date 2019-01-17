@@ -1,6 +1,6 @@
 ###env
-# url = '192.168.1.95'
-url = 'localhost'
+url = '192.168.1.95'
+# url = 'localhost'
 # url = 'https://XGame.pythonanywhere.com'
 accessToken = ''
 adminToken = ''
@@ -23,7 +23,8 @@ post( url + '/signup', # 200 success
 	headers={'device-id': 'myDeviceId'},
  	json={'fName': 'ali', 'lName': 'baghali', 'email': 'alibaghali@gmail.com', 'platform': 1})
 
+get( url + '/get_all_games') # 200 success
 
 post( url + '/cache',
-	json={'id': 1020})
+	json={'id': 11133})
 
