@@ -1,9 +1,11 @@
 ###env
-url = '192.168.1.95'
+# url = '192.168.1.95'
+url = '192.168.43.2'
 # url = 'localhost'
 # url = 'https://XGame.pythonanywhere.com'
 accessToken = ''
 adminToken = ''
+api_key = '5e69676036907c1ee9c1b528f87ba11e'
 ###env
 
 # -------------- User --------------
@@ -25,6 +27,11 @@ post( url + '/signup', # 200 success
 
 get( url + '/get_all_games') # 200 success
 
+post('https://api-v3.igdb.com/search',
+	headers={'user-key': api_key, 'Accept': 'application/json'},
+	data='fields game.name; search "god of war 3"; where game != null;'
+	)
+
 post( url + '/cache',
-	json={'id': 11133})
+	json={'id': 499})
 
