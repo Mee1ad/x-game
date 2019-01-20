@@ -106,4 +106,4 @@ class Cache(View, Vars):
         for cover in data['cover']:
             c = Media(table_id=game.id, media_id=data['cover']['image_id'], type=0)
             c.save()
-        self.res = {"message": "Cached successfully"}
+        self.res = {"message": "Cached successfully", "id": game.id}

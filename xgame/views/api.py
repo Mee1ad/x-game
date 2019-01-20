@@ -59,7 +59,7 @@ class GameDetail(Cache):
     def post(self, request):
         data = json.loads(request.body)
         game_id = data['id']
-        game_exists = Game.objects.get(pk=game_id).exists()
+        game_exists = Game.objects.filter(pk=game_id).exists()
         if not game_exists:
             self.cache(id)
         return self.get_game(game_id)
@@ -108,3 +108,7 @@ class Search(GameTile):
         res = {'games': games}
         return JsonResponse(res)
 
+
+class SellGame(View):
+    def post(self, request):
+        data = json.loads(request.body)

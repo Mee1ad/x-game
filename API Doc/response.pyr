@@ -1,0 +1,117 @@
+---------------- main games ----------------
+{
+  "games": [
+    {
+      "available": true,
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/c1mahksyzikn8eyjai8q.jpg",
+      "id": 15,
+      "low_price": 200000,
+      "name": "Dark Souls III",
+      "new": false,
+      "platform": "PC (Microsoft Windows),PlayStation 4,Xbox One",
+      "top_price": 380000
+    },
+    {
+      "available": false,
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/yfk9f2lbo0r7slytuhra.jpg",
+      "id": 16,
+      "name": "Red Dead Redemption 2",
+      "platform": "PlayStation 4,Xbox One"
+    },
+    {
+      "available": true,
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/nlrzpqxz31ca31gzqvkd.jpg",
+      "id": 17,
+      "low_price": 250000,
+      "name": "God of War III",
+      "new": false,
+      "platform": "PlayStation 3,PlayStation 4",
+      "top_price": 250000
+    },
+    {
+      "available": false,
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/f3mwxy3opbrbmcyguhly.jpg",
+      "id": 18,
+      "name": "God of War II",
+      "platform": "PlayStation 2,PlayStation 3"
+    }
+  ]
+}
+
+---------------- game detail ----------------
+{
+  "game": {
+    "alternative_names": "Dark Souls 3",
+    "collection": "Dark Souls",
+    "developer": "FromSoftware",
+    "first_release_date": 1458777600,
+    "genre": "Role-playing (RPG),Adventure",
+    "hypes": 27,
+    "igdb_id": 11133,
+    "name": "Dark Souls III",
+    "perspective": "third person",
+    "platform": "PC (Microsoft Windows),PlayStation 4,Xbox One",
+    "popularity": 19.1409811791295,
+    "publisher": "Bandai Namco Entertainment",
+    "summary": "As fires fade and the world falls into ruin, developer FROMSOFTWARE and director Hidetaka Miyazaki continue their critically-acclaimed and genre-defining series with Dark Souls III. Fans and newcomers alike will get lost in the games hallmark rewarding gameplay and immersive graphics. Now only embers remain\u2026",
+    "theme": "Action,Fantasy,Historical,Open world",
+    "total_rating": 86.574306385923,
+    "total_rating_count": 323
+  },
+  "sellers": [
+    {
+      "id": 1,
+      "name": "meelad",
+      "new": false,
+      "platform": 2,
+      "price": 200000
+    },
+    {
+      "id": 2,
+      "name": "meelad",
+      "new": false,
+      "platform": 1,
+      "price": 380000
+    }
+  ]
+}
+
+---------------- seller detail ----------------
+{
+  "seller": {
+    "address": "ny",
+    "city": "new york",
+    "created_at": "2019-01-17T11:00:40Z",
+    "description": "spiderman for xbox",
+    "game": 15,
+    "new": false,
+    "platform": 2,
+    "price": 200000,
+    "sold": false,
+    "updated_at": "2019-01-18T14:38:30.977Z",
+    "user": 2
+  }
+}
+
+---------------- search ----------------
+{
+  "games": [
+    {
+      "available": true,
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/nlrzpqxz31ca31gzqvkd.jpg",
+      "id": 17,
+      "low_price": 250000,
+      "name": "God of War III",
+      "new": false,
+      "platform": "PlayStation 3,PlayStation 4",
+      "top_price": 250000
+    },
+    {
+      "available": false,
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/f3mwxy3opbrbmcyguhly.jpg",
+      "id": 18,
+      "name": "God of War II",
+      "platform": "PlayStation 2,PlayStation 3"
+    }
+  ]
+}
