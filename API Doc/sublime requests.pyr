@@ -1,11 +1,12 @@
 ###env
-# url = '192.168.1.95'
-url = '192.168.43.2'
+url = '192.168.1.95'
+# url = '192.168.43.2'
 # url = 'localhost'
 # url = 'https://XGame.pythonanywhere.com'
 accessToken = ''
 adminToken = ''
 api_key = '5e69676036907c1ee9c1b528f87ba11e'
+platform = {0: 'nothing', 1: 'PlayStation 4', 2: 'Xbox One', 3: 'nintendo switch', 4: 'PC (Microsoft Windows)'}
 ###env
 
 # -------------- User --------------
@@ -25,13 +26,31 @@ post( url + '/signup', # 200 success
 	headers={'device-id': 'myDeviceId'},
  	json={'fName': 'ali', 'lName': 'baghali', 'email': 'alibaghali@gmail.com', 'platform': 1})
 
-get( url + '/get_all_games') # 200 success
+get( url + '/main_games') # 200 success
+
+get( url + '/game_detail', # 200 success
+	json={'id': 15}
+)
+
+get( url + '/seller_detail', # 200 success
+	json={'id': 1}
+)
+
+post( url + '/search', # 200 success
+	json={'gameName': 'god of war'}
+)
+
+post( url + '/find', # 200 success
+	json={'gameName': 'dark'}
+)
+
+-----------------------------------------------------------------------------------------------------
 
 post('https://api-v3.igdb.com/search',
 	headers={'user-key': api_key, 'Accept': 'application/json'},
-	data='fields game.name; search "god of war 3"; where game != null;'
+	data='fields game.name; search "god of war 2"; where game != null;'
 	)
 
 post( url + '/cache',
-	json={'id': 499})
+	json={'id': 551})
 

@@ -2,28 +2,31 @@ from django.contrib.auth.models import AbstractUser
 from django_mysql.models import ListCharField
 from django_mysql.models import Model
 from django.db import models
+import json
 
 
 class Game(Model):
+    def __str__(self):
+        return self.name
     igdb_id = models.BigIntegerField()
     name = models.CharField(max_length=255)
-    popularity = models.FloatField(blank=True)
-    total_rating = models.FloatField(null=True, blank=True)
-    total_rating_count = models.IntegerField(null=True, blank=True)
-    summary = models.TextField(null=True, blank=True)
+    popularity = models.FloatField(default=0, blank=True)
+    total_rating = models.FloatField(default=0, blank=True)
+    total_rating_count = models.IntegerField(default=0, blank=True)
+    summary = models.TextField(default="", blank=True)
     collection = models.CharField(max_length=255, null=True, blank=True)
     first_release_date = models.BigIntegerField(null=True, blank=True)
-    hypes = models.IntegerField(null=True, blank=True)
+    hypes = models.IntegerField(default=0, blank=True)
     perspective = models.CharField(max_length=255, null=True, blank=True)
     alternative_names = ListCharField(
         base_field=models.CharField(max_length=255),
         size=10,
         max_length=(10 * 256))
-    platforms = ListCharField(
-        base_field=models.CharField(max_length=7),
+    platform = ListCharField(
+        base_field=models.CharField(max_length=63),
         size=20,
-        max_length=(20 * 8))
-    genres = ListCharField(
+        max_length=(20 * 64))
+    genre = ListCharField(
         base_field=models.CharField(max_length=255),
         size=10,
         max_length=(10 * 256))
@@ -42,6 +45,8 @@ class Game(Model):
 
 
 class User(AbstractUser):
+    def __str__(self):
+        return self.username
     phone = models.CharField(max_length=15)
     device_id = models.CharField(max_length=127)
     platform = models.SmallIntegerField(null=True, blank=True)
@@ -58,14 +63,17 @@ class User(AbstractUser):
 
 
 class Seller(Model):
+    def __str__(self):
+        sell = f'{self.id} - {self.game}: {self.price}, {self.platform}'
+        return sell
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     platform = models.SmallIntegerField()
-    description = models.TextField(null=True, blank=True)
+    description = models.TextField(default="", blank=True)
     location = models.CharField(max_length=255)
-    address = models.TextField(null=True, blank=True)
-    city = models.CharField(max_length=255)
+    address = models.TextField(default="", blank=True)
+    city = models.CharField(default="", max_length=255)
     new = models.BooleanField(default=False)
     price = models.IntegerField()
     sold = models.BooleanField(default=False)
@@ -73,16 +81,31 @@ class Seller(Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def get_json(self):
+        json_rep = {}
+        json_rep['id'] = self.id
+        json_rep['user'] = self.user
+        json_rep['game'] = self.game
+        return json.dumps(json_rep)
+
 
 class Media(Model):
+    def __str__(self):
+        return self.type
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False)
     table_id = models.IntegerField()
-    description = models.TextField()
+    media_id = models.CharField(max_length=255)
+    description = models.TextField(null=True, blank=True)
     type = models.SmallIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 
 class Comment(Model):
+    def __str__(self):
+        comment = f'{self.game}, {self.user}: {self.text}'
+        return comment
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     text = models.TextField()

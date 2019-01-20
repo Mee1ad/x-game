@@ -25,7 +25,7 @@ SECRET_KEY = 'f#efhtr5dqb0#@n81sb55e^%&wy7b2b3=1b6b(q-ml_s(xx@8w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.95', 'localhost']
+ALLOWED_HOSTS = ['192.168.1.95', '192.168.43.2', 'localhost']
 
 AUTH_USER_MODEL = 'xgame.User'
 
@@ -86,8 +86,8 @@ DATABASES = {
         'PASSWORD': '',
         'port': '3306',
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES', innodb_strict_mode=1",
             'charset': 'utf8mb4',
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES', innodb_strict_mode=1"
         },
         'TEST': {
             'CHARSET': 'utf8mb4',
@@ -96,6 +96,9 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
