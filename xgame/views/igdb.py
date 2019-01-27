@@ -1,17 +1,17 @@
-import requests
-import json
 from django.http import JsonResponse, HttpResponse
-from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from xgame.models import *
-from django.views import View
 from .Consts import Vars
+import requests
 
 
-class Find(View, Vars):
+class Find(Vars):
     def post(self, request):
         data = json.loads(request.body)
         game_name = data['gameName']
+        more = data['more']
+        if more == 1:
+            return self.find_game(game_name)
         game_exists = Game.objects.filter(
             Q(name__icontains=game_name) | Q(alternative_names__icontains=game_name)).exists()
         if game_exists:
@@ -29,18 +29,20 @@ class Find(View, Vars):
         self.find_game(game_name)
 
     def find_game(self, game_name):
-        data = f'fields name; search {game_name}; where game != null;'
+        data = f'fields name; search "{game_name}"; where game != null;'
         headers = {'user-key': self.api_key, 'Accept': 'application/json'}
         try:
             r = requests.get(self.base_url + '/search', data=data, headers=headers)
             data = r.json()
-            return JsonResponse(data)
+            print(data)
+            res = {'games': data}
+            return JsonResponse(res)
         except Exception as e:
             print(e)
             return HttpResponse(e)
 
 
-class Cache(View, Vars):
+class Cache(Vars):
     data = []
     res = {"message": "Cache failed"}
 

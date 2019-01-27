@@ -3,6 +3,7 @@ from django_mysql.models import ListCharField
 from django_mysql.models import Model
 from django.db import models
 import json
+from django.contrib.auth.validators import UnicodeUsernameValidator
 
 
 class Game(Model):
@@ -45,8 +46,11 @@ class Game(Model):
 
 
 class User(AbstractUser):
-    def __str__(self):
-        return self.username
+    # def __str__(self):
+    #     return self.username
+
+    username = models.CharField(max_length=150, verbose_name='username',
+                                validators=[UnicodeUsernameValidator()])
     phone = models.CharField(max_length=15)
     device_id = models.CharField(max_length=127)
     platform = models.SmallIntegerField(null=True, blank=True)
@@ -54,7 +58,7 @@ class User(AbstractUser):
     address = models.TextField(null=True, blank=True)
     location = models.CharField(max_length=255, null=True, blank=True)
     activation_code = models.CharField(max_length=7, null=True, blank=True)
-    activation_expire = models.DateTimeField(auto_now_add=True)
+    activation_expire = models.DateTimeField()
     access_token = models.TextField(max_length=1023, null=True, blank=True)
     refresh_token = models.TextField(max_length=1023, null=True, blank=True)
     access_token_expire = models.DateTimeField(auto_now_add=True)

@@ -1,7 +1,7 @@
 ###env
-url = '192.168.1.95'
+# url = '192.168.1.95'
 # url = '192.168.43.2'
-# url = 'localhost'
+url = 'localhost'
 # url = 'https://XGame.pythonanywhere.com'
 accessToken = ''
 adminToken = ''
@@ -28,7 +28,7 @@ post( url + '/signup', # 200 success
 
 get( url + '/main_games') # 200 success
 
-get( url + '/game_detail', # 200 success
+post( url + '/game_detail', # 200 success
 	json={'id': 15}
 )
 
@@ -37,11 +37,11 @@ get( url + '/seller_detail', # 200 success
 )
 
 post( url + '/search', # 200 success
-	json={'gameName': 'god of war'}
+	json={'gameName': 'god'}
 )
 
 post( url + '/find', # 200 success
-	json={'gameName': 'dark'}
+	json={'gameName': 'god'}
 )
 
 -----------------------------------------------------------------------------------------------------

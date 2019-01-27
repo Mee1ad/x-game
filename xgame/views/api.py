@@ -1,16 +1,12 @@
-from django.shortcuts import get_object_or_404
 from django.http import JsonResponse, HttpResponse
-from django.core import serializers
-from xgame.models import *
+from django.shortcuts import get_object_or_404
 from django.views import View
+from xgame.models import *
 from .igdb import Cache
-import ast
 from .Consts import Vars
 
 
-class GameTile(View, Vars):
-
-
+class GameTile(Vars):
     def games(self, request, all_games):
         games = []
         for game in all_games:
@@ -22,9 +18,7 @@ class GameTile(View, Vars):
             my_game['cover'] = self.cover + cover.media_id + '.jpg'
             if seller_exists:
                 sellers = Seller.objects.filter(game=game['pk'])
-                sellers = serializers.serialize("json", sellers)
-                sellers = sellers.replace('false', 'False').replace('true', 'True')
-                sellers = ast.literal_eval(sellers)
+                sellers = self.string_to_list(sellers)
                 prices = []
                 for seller in sellers:
                     s = seller['fields']
@@ -44,9 +38,7 @@ class MainGames(GameTile):
     def get(self, request):
         try:
             all_games = Game.objects.all()
-            all_games = serializers.serialize("json", all_games)
-            all_games = all_games.replace('false', 'False').replace('true', 'True')
-            all_games = ast.literal_eval(all_games)
+            all_games = self.string_to_list(all_games)
             games = self.games(self, all_games)
             res = {'games': games}
             return JsonResponse(res)
@@ -66,13 +58,16 @@ class GameDetail(Cache):
 
     def get_game(self, game_id):
         game = Game.objects.get(pk=game_id)
-        game = serializers.serialize("json", [game])
-        game = game.replace('false', 'False').replace('true', 'True')
-        game = ast.literal_eval(game)
+        game = self.string_to_list(game)
+        media = Media.objects.filter(table_id=game[0]['pk'], type=1)
+        media = self.string_to_list(media)
+        screens = []
+        for m in media:
+            screens.append(self.screenshot + m['fields']['media_id'] + '.jpg')
+
+        game[0]['fields']['screenshots'] = screens
         sellers = Seller.objects.filter(game_id=game_id)
-        sellers = serializers.serialize("json", sellers)
-        sellers = sellers.replace('false', 'False').replace('true', 'True')
-        sellers = ast.literal_eval(sellers)
+        sellers = self.string_to_list(sellers)
         sellers_detail = []
         for seller in sellers:
             s = seller['fields']
@@ -84,14 +79,12 @@ class GameDetail(Cache):
         return JsonResponse(res)
 
 
-class SellerDetail(View, Vars):
+class SellerDetail(Vars):
     def get(self, request):
         data = json.loads(request.body)
         sell_id = data['id']
         seller = get_object_or_404(Seller, pk=sell_id)
-        seller = serializers.serialize("json", [seller])
-        seller = seller.replace('false', 'False').replace('true', 'True')
-        seller = ast.literal_eval(seller)
+        seller = self.string_to_list(seller)
         del seller[0]['fields']['location'], seller[0]['fields']['trends']
         res = {'seller': seller[0]['fields']}
         return JsonResponse(res)
@@ -102,8 +95,7 @@ class Search(GameTile):
         data = json.loads(request.body)
         game_name = data['gameName']
         games = Game.objects.filter(name__icontains=f'{game_name}')
-        games = serializers.serialize("json", games).replace('false', 'False').replace('true', 'True')
-        games = ast.literal_eval(games)
+        games = self.string_to_list(games)
         games = self.games(self, games)
         res = {'games': games}
         return JsonResponse(res)
@@ -112,3 +104,39 @@ class Search(GameTile):
 class SellGame(View):
     def post(self, request):
         data = json.loads(request.body)
+        sell = Seller(user_id=data['user_id'], game_id=data['game_id'], platform=data['platform'],
+                      description=data['description'], location=data['location'],
+                      address=data['address'], city=data['city'], new=data['new'], price=data['price'])
+        sell.save()
+
+
+class Review(View):
+    def post(self, request):
+        try:
+            data = json.loads(request.body)
+            comment = Comment(text=data['text'], rate=data['rate'], game_id=data['gameId'], user_id=request.user.id)
+            comment.save()
+            res = {'message': "Comment Successfully Added"}
+            return JsonResponse(res, status=201)
+        except Exception as e:
+            print(e)
+            return HttpResponse(e)
+
+
+class GetReviews(Vars):
+    def get(self, request):
+        try:
+            id = request.GET.get('id', '')
+            all_comments = Comment.objects.filter(game_id=id)
+            all_comments = self.string_to_list(all_comments)
+            print(all_comments)
+            comments = []
+            for comment in all_comments:
+                c = comment['fields']
+                comments.append(c)
+            res = {'comments': comments}
+            return JsonResponse(res)
+        except Exception as e:
+            print(e)
+            return HttpResponse(e)
+
