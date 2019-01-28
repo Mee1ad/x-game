@@ -50,7 +50,7 @@ class User(AbstractUser):
     #     return self.username
 
     username = models.CharField(max_length=150, verbose_name='username',
-                                validators=[UnicodeUsernameValidator()])
+                                validators=[UnicodeUsernameValidator()], unique=True, null=True, blank=True)
     phone = models.CharField(max_length=15)
     device_id = models.CharField(max_length=127)
     platform = models.SmallIntegerField(null=True, blank=True)

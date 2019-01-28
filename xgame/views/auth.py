@@ -10,11 +10,11 @@ import json
 
 class VersionControl(Vars):
     def get(self, request):
-        res = {'version': self.version, 'minVersion': self.min_version, 'user': request.user}
+        res = {'version': self.version, 'min_version': self.min_version}
         return JsonResponse(res)
 
 
-class Login(View):
+class Login(Vars):
     def post(self, request):
         data = json.loads(request.body)
         phone = data['phone']
@@ -41,9 +41,8 @@ class Login(View):
                 code = user.activation_code
             res = {'message': code}
             return JsonResponse(res)
-        except Exception as e:
-            print(e)
-            return HttpResponse(e)
+        except Exception:
+            return JsonResponse(self.get_error())
 
 
 class Activate(Vars):
@@ -98,9 +97,9 @@ class Signup(Vars):
             user.save()
             self.generate_token(user.id)
             user = User.objects.get(device_id=device_id)
-            res = {'name': user.first_name, 'lastName': user.last_name, 'email': user.email, 'phone': user.phone,
-                   'platform': user.platform, 'accessToken': user.access_token,
-                   'refreshToken': user.refresh_token}
+            res = {'name': user.first_name, 'last_name': user.last_name, 'email': user.email, 'phone': user.phone,
+                   'platform': user.platform, 'access_token': user.access_token,
+                   'refresh_token': user.refresh_token}
             return JsonResponse(res)
         except Exception as e:
             print(e)

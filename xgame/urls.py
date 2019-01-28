@@ -8,11 +8,11 @@ urlpatterns = [
     path('activate', require_POST(auth.Activate.as_view()), name='activate'),
     path('signup', require_POST(auth.Signup.as_view()), name='signup'),
     path('main_games', require_safe(api.MainGames.as_view()), name='main_games'),
-    path('game_detail', require_POST(api.GameDetail.as_view()), name='game_detail'),
+    path('game_detail', require_safe(api.GameDetail.as_view()), name='game_detail'),
     path('review', require_POST(api.Review.as_view()), name='review'),
-    path('get_reviews', require_safe(api.GetReviews.as_view()), name='get_reviews'),
     path('seller_detail', require_safe(api.SellerDetail.as_view()), name='seller_detail'),
     path('search', require_POST(api.Search.as_view()), name='search'),
     path('find', require_POST(igdb.Find.as_view()), name='find'),
+    path('get_countries', require_safe(api.GetCountries.as_view()), name='get_countries'),
 
 ]
