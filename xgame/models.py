@@ -9,15 +9,15 @@ from django.contrib.auth.validators import UnicodeUsernameValidator
 class Game(Model):
     def __str__(self):
         return self.name
-    igdb_id = models.BigIntegerField()
+    id = models.BigIntegerField(primary_key=True)
     name = models.CharField(max_length=255)
-    popularity = models.FloatField(default=0, blank=True)
-    total_rating = models.FloatField(default=0, blank=True)
-    total_rating_count = models.IntegerField(default=0, blank=True)
-    summary = models.TextField(default="", blank=True)
+    popularity = models.FloatField(default=0, blank=True, null=True)
+    total_rating = models.FloatField(default=0, blank=True, null=True)
+    total_rating_count = models.IntegerField(default=0, blank=True, null=True)
+    summary = models.TextField(default="", blank=True, null=True)
     collection = models.CharField(max_length=255, null=True, blank=True)
     first_release_date = models.BigIntegerField(null=True, blank=True)
-    hypes = models.IntegerField(default=0, blank=True)
+    hypes = models.IntegerField(default=0, blank=True, null=True)
     perspective = models.CharField(max_length=255, null=True, blank=True)
     alternative_names = ListCharField(
         base_field=models.CharField(max_length=255),
@@ -51,7 +51,7 @@ class User(AbstractUser):
 
     username = models.CharField(max_length=150, verbose_name='username',
                                 validators=[UnicodeUsernameValidator()], unique=True, null=True, blank=True)
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=13)
     device_id = models.CharField(max_length=127)
     platform = models.SmallIntegerField(null=True, blank=True)
     is_active = models.BooleanField(default=False)
@@ -98,11 +98,15 @@ class Media(Model):
         return self.type
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False)
     table_id = models.IntegerField()
-    media_id = models.CharField(max_length=255)
+    media_id = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    type = models.SmallIntegerField()
+    type = models.SmallIntegerField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    cover = models.ImageField(upload_to='cover/', null=True, blank=True)
+    screenshot = models.ImageField(upload_to='screenshot/', null=True, blank=True)
+    trailer = models.FilePathField(null=True, blank=True)
+    seller_photos = models.ImageField(upload_to='seller_photos/', null=True, blank=True)
 
 
 class Comment(Model):
