@@ -25,7 +25,7 @@ class Vars(View):
     image_url = 'https://images.igdb.com/igdb/image/upload/t_720p/'
     screenshot = 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/'
     cover = 'https://images.igdb.com/igdb/image/upload/t_cover_big/'
-    media = 'localhost'
+    media = 'http://192.168.1.95'
 
     def generate_token(self, user_id):
         user = User.objects.get(pk=user_id)

@@ -110,15 +110,19 @@ class SellerDetail(Vars):
         sell_id = request.GET.get('id', '')
         seller = get_object_or_404(Seller, pk=sell_id)
         seller = self.string_to_list([seller])
-        del seller[0]['fields']['location'], seller[0]['fields']['trends']
+        fields = seller[0]['fields']
+        del fields['location'], fields['trends']
+        user = User.objects.get(pk=fields['user'])
+        fields['user'] = f'{user.first_name} {user.last_name}'
+        fields['phone'] = user.phone
+        fields['email'] = user.email
         all_media = Media.objects.filter(type=3, table_id=sell_id)
-        all_media = self.string_to_list(all_media)
         media = []
         for medi in all_media:
-            media.append(self.screenshot + medi['fields']['media_id'] + '.jpg')
+            media.append(self.media + medi.seller_photos.url)
 
-        seller[0]['fields']['media'] = media
-        res = {'seller': seller[0]['fields']}
+        fields['media'] = media
+        res = {'seller': fields}
         return JsonResponse(res)
 
 
@@ -128,7 +132,6 @@ class Search(GameTile):
         data = json.loads(request.body)
         game_name = data['gameName']
         games = Game.objects.filter(name__icontains=f'{game_name}')
-        # s = serializers.serialize("json", games)
         games = self.string_to_list(games)
         games = self.games(self, games)
         res = {'games': games}
@@ -188,9 +191,7 @@ class SellerPhotosUpload(Vars):
     @try_except
     def post(self, request):
         for id, image in zip(request.POST.getlist('id'), request.FILES.getlist('file')):
-            media = Media.objects.get(pk=id)
-            media.table_id = request.POST.get('id')
-            media.seller_photos = image
+            media = Media(table_id=id, seller_photos=image, type=3)
             media.save()
         return HttpResponse("ok")
 
