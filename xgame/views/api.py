@@ -52,7 +52,7 @@ class GameDetail(Cache):
         game_id = request.GET.get('id', '')
         game_exists = Game.objects.filter(id=game_id).exists()
         if not game_exists:
-            self.cache(game_id)
+            return self.cache(game_id)
         game = self.get_game(game_id)
         sellers_detail = self.get_sellers(game_id)
         comments = self.get_reviews(game_id)
@@ -138,16 +138,6 @@ class Search(GameTile):
         return JsonResponse(res)
 
 
-class SellGame(View):
-    @try_except
-    def post(self, request):
-        data = json.loads(request.body)
-        sell = Seller(user_id=request.user.id, game_id=data['game_id'], platform=data['platform'],
-                      description=data['description'], location=data['location'],
-                      address=data['address'], city=data['city'], new=data['new'], price=data['price'])
-        sell.save()
-
-
 class Review(View):
     @try_except
     def post(self, request):
@@ -187,13 +177,19 @@ class GetCities(Vars):
         return JsonResponse(data)
 
 
-class SellerPhotosUpload(Vars):
+class AddSell(Vars):
     @try_except
     def post(self, request):
-        for id, image in zip(request.POST.getlist('id'), request.FILES.getlist('file')):
-            media = Media(table_id=id, seller_photos=image, type=3)
+        data = json.loads(request.POST.get('data'))
+        sell = Seller(user_id=request.user.id, game_id=data['id'], platform=data['platform'],
+                      description=data['description'], location=data['location'], address=data['address'],
+                      city=data['city'], new=data['new'], price=data['price'], phone=data['phone'])
+        sell.save()
+        for image in request.FILES.getlist('file'):
+            media = Media(table_id=data['id'], seller_photos=image, type=3)
             media.save()
-        return HttpResponse("ok")
+        res = {"message": "Uploaded Successfully"}
+        return JsonResponse(res)
 
 
 class VideoUpload(Vars):

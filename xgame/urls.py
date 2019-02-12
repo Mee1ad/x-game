@@ -16,13 +16,12 @@ urlpatterns = [
     path('seller_detail', api.SellerDetail.as_view(), name='seller_detail'),
     path('search', api.Search.as_view(), name='search'),
     path('find', igdb.Find.as_view(), name='find'),
-    path('seller_upload', require_POST(api.SellerPhotosUpload.as_view()), name='seller_upload'),
+    path('add_seller', api.AddSell.as_view(), name='add_seller'),
     # path('image_upload', require_POST(api.ImageUpload.as_view()), name='image_upload'),
     path('get_countries', api.GetCountries.as_view(), name='get_countries'),
     path('get_regions', api.GetRegions.as_view(), name='get_regions'),
     path('get_cities', api.GetCities.as_view(), name='get_cities'),
 
-    path('test', igdb.Aparat.as_view(), name='test'),
 ]
 
 if settings.DEBUG:

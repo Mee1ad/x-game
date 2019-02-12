@@ -6,137 +6,33 @@ from xgame.models import *
 from .Consts import Vars
 import requests
 from django.views import View
+# from threading import Thread
+import threading
+from xgame.decorators import try_except
+from xgame.threads import UploadVideo, UploadScreen, UploadCover
 
 
 class Find(Vars):
     @try_except
-    def post(self, request):
+    def get(self, request):
         game_name = request.GET.get('gameName', '')
         return self.find_game(game_name)
-        # game_exists = Game.objects.filter(
-        #     Q(name__icontains=game_name) | Q(alternative_names__icontains=game_name)).exists()
-        # if game_exists:
-        #     games = Game.objects.filter(
-        #     Q(name__icontains=game_name) | Q(alternative_names__icontains=game_name))
-        #     games_data = []
-        #     for game in games:
-        #         g = {}
-        #         g['id'] = game.id
-        #         g['name'] = game.name
-        #         cover = Media.objects.get(type=0, table_id=game.id)
-        #         g['cover'] = self.cover + cover.media_id + '.jpg'
-        #         games_data.append(g)
-        #     return JsonResponse({'data': games_data})
-        # self.find_game(game_name)
 
     def find_game(self, game_name):
-        data = f'fields name, game; search "{game_name}"; where game != null;'
+        data = f'fields name, game, published_at; search "{game_name}"; where game != null;'
         headers = {'user-key': self.api_key, 'Accept': 'application/json'}
-        try:
-            r = requests.get(self.base_url + '/search', data=data, headers=headers)
-            data = r.json()
-            print(data)
-            res = {'games': data}
-            return JsonResponse(res)
-        except Exception as e:
-            print(e)
-            return HttpResponse(e)
+        r = requests.get(self.base_url + '/search', data=data, headers=headers)
+        data = r.json()
+        if 'published_at' in data:
+            data = sorted(data, key=lambda i: i['published_at'])
+        res = {'games': data}
+        return JsonResponse(res)
 
 
-class Aparat(View):
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36',
-               'Content-Type': 'application/json;charset=UTF-8', 'host': 'api.aparat.com'}
-    user = "sjdfnskjfkskf"
-    password = "19951374"
-
-    def get(self, request):
-        url = 'https://api.aparat.com/fa/v1/user/account/signin/'
-        self.headers['Referer'] = 'https://www.aparat.com/authentication'
-        self.headers['Access-Control-Request-Method'] = 'POST'
-        self.headers['Access-Control-Request-Headers'] = 'content-type,x-sabaenv'
-        print(self.headers)
-        data = {"account": self.user}
-        r = requests.options(url, data=data, headers=self.headers)
-        print(r.status_code)
-        self.headers['X-SabaENV'] = "{}"
-        r = requests.post(url, data=data, headers=self.headers)
-        if r.status_code == 200:
-            temp_id = r.json()['data']['attributes']['tempId']
-            print('tempId:', temp_id)
-            self.signin_password(temp_id)
-        else:
-            print("signin error")
-            print(r.status_code)
-            print(r.json())
-            return HttpResponse("signin error")
-
-    def signin_password(self, temp_id):
-        url = 'https://api.aparat.com/fa/v1/user/account/signin_password'
-        self.headers['Referer'] = 'https://www.aparat.com/authentication/signin/password'
-        self.headers['X-SabaENV'] = '{}'
-        data = {"account": self.user, "password": self.password, "tempId": temp_id}
-        r = requests.post(url, data=data, headers=self.headers)
-        if r.status_code == 200:
-            token = r.json()['data']['attributes']['token']
-            self.upload_form(token)
-        else:
-            print("signin_password error")
-            return HttpResponse("signin_password error")
-
-    def upload_form(self, token):
-        url = 'https://api.aparat.com/fa/v1/video/upload/url/'
-        self.headers['Referer'] = 'https://www.aparat.com/uploadnew'
-        self.headers['Access-Control-Request-Headers'] = 'Access-Control-Request-Headers'
-        self.headers['Access-Control-Request-Method'] = 'POST'
-        self.headers['Authorization'] = f'Bearer {token}'
-        data = {"url": "https://www.youtube.com/watch?v=eaW0tYpxyp0"}
-        r = requests.post(url, data=data, headers=self.headers)
-        if r.status_code == 200:
-            res = r.json()
-            res = res['data']['attributes']
-            video_id = res['id']
-            upload_id = res['uploadId']
-            title = res['title']
-            tags = res['tags']
-            youtube_url = res['url']
-            self.upload(upload_id, video_id, tags, title, youtube_url)
-        else:
-            print("upload_form error")
-            return HttpResponse("upload_form error")
-
-    def upload(self, upload_id, video_id, tags, title, youtube_url):
-        url = f'https://api.aparat.com/fa/v1/video/upload/upload/uploadId/{upload_id}'
-        data = {
-            "category": "22",
-            "comment": "no",
-            "d360": "0",
-            "descr": "",
-            "id": video_id,
-            "new_cat": "",
-            "new_playlist": "",
-            "playlistid": "",
-            "profile_cat": "",
-            "subtitle": "",
-            "tags": tags,
-            "title": title,
-            "uploadId": upload_id,
-            "url": youtube_url,
-            "video_pass": "",
-            "watermark": "false"
-        }
-        r = requests.post(url=url, data=data, headers=self.headers)
-        if r.status_code == 200:
-            link = 'https://aparat.com/v/' + r.json()['data']['attributes']['uid']
-            print("Uploaded Successfully")
-            print(link)
-        else:
-            print("upload_form error")
-            return HttpResponse("upload_form error")
-        
-
-class Cache(Vars, Aparat):
+class Cache(Vars):
     data = []
     res = {"message": "Cache failed"}
+    links = []
 
     def cache(self, game_id):
         print("Caching...")
@@ -144,8 +40,7 @@ class Cache(Vars, Aparat):
         headers = {'user-key': self.api_key, 'Accept': 'application/json'}
         r = requests.get(self.base_url + '/games', data=data, headers=headers)
         self.data = r.json()
-        self.game_cache()
-        return JsonResponse(self.res)
+        return self.game_cache()
 
     def game_cache(self):
         data = self.data[0]
@@ -165,8 +60,9 @@ class Cache(Vars, Aparat):
             for names in data['alternative_names']:
                 alternative_names.append(names['name'])
         platforms = []
-        for platform in data['platforms']:
-            platforms.append(platform['name'])
+        if 'platforms' in data:
+            for platform in data['platforms']:
+                platforms.append(platform['name'])
         genres = []
         if 'genres' in data:
             for genre in data['genres']:
@@ -176,42 +72,53 @@ class Cache(Vars, Aparat):
             for theme in data['themes']:
                 themes.append(theme['name'])
         publishers = []
-        for publisher in data['involved_companies']:
-            if publisher['publisher']:
-                publishers.append(publisher['company']['name'].replace(",", "."))
         developers = []
-        for developer in data['involved_companies']:
-            if developer['developer']:
-                developers.append(developer['company']['name'].replace(",", "."))
+        if 'involved_companies' in data:
+            for publisher in data['involved_companies']:
+                if publisher['publisher']:
+                    publishers.append(publisher['company']['name'].replace(",", "."))
+            for developer in data['involved_companies']:
+                if developer['developer']:
+                    developers.append(developer['company']['name'].replace(",", "."))
 
         game = Game(id=data['id'], name=data['name'], perspective=perspective, alternative_names=alternative_names,
                     first_release_date=data['first_release_date'] if 'first_release_date' in data else None,
-                    hypes=data['hypes'] if 'hypes' in data else None, popularity=data['popularity'],
-                    total_rating=data['total_rating'] if 'total_rating' in data else None, developer=developers,
-                    total_rating_count=data['total_rating_count'] if 'total_rating_count' in data else None,
-                    summary=data['summary'], platform=platforms, genre=genres, theme=themes, publisher=publishers,
-                    collection=collection)
+                    hypes=data['hypes'] if 'hypes' in data else 0, popularity=data['popularity'],
+                    total_rating=data['total_rating'] if 'total_rating' in data else 0, developer=developers,
+                    total_rating_count=data['total_rating_count'] if 'total_rating_count' in data else 0,
+                    summary=data['summary'] if 'summary' in data else None, platform=platforms, genre=genres,
+                    theme=themes, publisher=publishers, collection=collection)
         game.save()
+        my_game = self.string_to_list([game])
         if 'videos' in data:
+            my_game[0]['fields']['video'] = []
             for video in data['videos']:
                 v = Media(table_id=game.id, media_id=video['video_id'], type=2)
                 v.save()
+                link = 'https://www.youtube.com/watch?v=' + video['video_id']
+                my_game[0]['fields']['video'].append(link)
+                # in new thread
+                self.links.append(link)
+            # video_thread = UploadVideo(self.links)
+            # video_thread.start()
+
         if 'screenshots' in data:
+            screenshots = []
             for screen in data['screenshots']:
                 url = self.screenshot + screen['image_id'] + '.jpg'
-                img = self.file_cache(url)
-                media = Media(table_id=game.id, type=1)
-                media.screenshot.save(data['name'] + '.jpg', File(img), save=True)
+                screenshots.append(url)
+            my_game[0]['fields']['screenshots'] = screenshots
+            # new thread
+            screenshot_thread = UploadScreen(screenshots, game.id, game.name)
+            screenshot_thread.start()
         if 'cover' in data:
             url = self.cover + data['cover']['image_id'] + '.jpg'
-            img = self.file_cache(url)
-            media = Media(table_id=game.id, type=0)
-            media.cover.save(data['name'] + '.jpg', File(img), save=True)
-        self.res = {"message": "Cached successfully", "id": game.id}
-        print("Uploading trailers...")
-        # self.signin()
+            my_game[0]['fields']['cover'] = url
+            # new thread
+            cover_thread = UploadCover(url, game.id, game.name)
+            cover_thread.start()
         print("Cached Successfully")
-        res = {'message': "Cached Successfully"}
+        res = {'game': my_game[0]['fields']}
         return JsonResponse(res)
 
 

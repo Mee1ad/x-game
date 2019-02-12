@@ -8,6 +8,7 @@ from secrets import token_hex
 from xgame.models import *
 import requests
 import ast
+import threading
 
 activate(settings.TIME_ZONE)
 
@@ -26,6 +27,8 @@ class Vars(View):
     screenshot = 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/'
     cover = 'https://images.igdb.com/igdb/image/upload/t_cover_big/'
     media = 'http://192.168.1.95'
+    threadLock = threading.Lock()
+    threads = []
 
     def generate_token(self, user_id):
         user = User.objects.get(pk=user_id)
