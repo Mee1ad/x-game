@@ -1,0 +1,685 @@
+INFO: 2019-03-02 10:38:17,340, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.95 - INFO: 2019-03-02 10:38:35,492, basehttp, "POST /activate HTTP/1.1" 200 2238
+192.168.1.95 - INFO: 2019-03-02 10:39:18,759, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.95 - INFO: 2019-03-02 10:39:27,635, basehttp, "POST /activate HTTP/1.1" 200 2238
+192.168.1.95 - WARNING: 2019-03-02 10:39:53,710, log, Not Found: /refresh_token
+WARNING: 2019-03-02 10:39:53,711, basehttp, "POST /refresh_token HTTP/1.1" 404 4428
+192.168.1.95 - WARNING: 2019-03-02 10:40:21,593, base, Method Not Allowed (POST): /refresh_tokens
+WARNING: 2019-03-02 10:40:21,593, log, Method Not Allowed: /refresh_tokens
+WARNING: 2019-03-02 10:40:21,594, basehttp, "POST /refresh_tokens HTTP/1.1" 405 0
+192.168.1.95 - INFO: 2019-03-02 10:40:40,086, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - INFO: 2019-03-02 11:46:24,107, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 11:46:27,360, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - WARNING: 2019-03-02 11:47:39,974, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:47:39,974, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - WARNING: 2019-03-02 11:47:40,505, log, Unauthorized: /refresh_tokens
+WARNING: 2019-03-02 11:47:40,505, basehttp, "GET /refresh_tokens HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:47:50,325, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 11:49:32,439, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 11:49:40,973, basehttp, "POST /activate HTTP/1.1" 200 2238
+192.168.1.101 - INFO: 2019-03-02 11:50:09,163, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - WARNING: 2019-03-02 11:50:19,473, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:19,474, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:19,652, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:19,730, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:19,731, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:19,853, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:19,910, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:19,910, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:20,218, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:20,277, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:20,277, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:20,373, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:20,428, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:20,428, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:20,531, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:20,590, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:20,590, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:20,673, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:20,725, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:20,726, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:21,063, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:21,122, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:21,123, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:21,228, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:21,291, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:21,291, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:21,418, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:21,474, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:21,474, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:21,745, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:22,041, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:22,042, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:22,486, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:22,650, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:22,651, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:23,317, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:23,598, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:23,599, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:23,792, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:23,855, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:23,856, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:23,992, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:24,056, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:24,057, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:24,159, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:24,233, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:24,234, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:24,367, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:24,437, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:24,438, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:24,546, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:24,621, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:24,622, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:24,714, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:24,769, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:24,770, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:24,879, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:24,948, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:24,949, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:25,043, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:25,099, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:25,099, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:25,211, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:25,264, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:25,265, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:25,378, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:32,601, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:32,601, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:32,710, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:32,796, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:32,796, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:32,921, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:32,986, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:32,987, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:33,079, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:33,141, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:33,141, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:33,243, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:33,306, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:33,306, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:33,412, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:33,486, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:33,487, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:33,567, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:33,645, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:33,645, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:33,755, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:33,825, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:33,826, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:33,989, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:34,041, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:34,041, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:34,185, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:34,249, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:34,250, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:34,598, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:34,698, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:34,698, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:34,884, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:34,962, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:34,962, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:50:35,087, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 11:50:35,148, log, Unauthorized: /user_games
+WARNING: 2019-03-02 11:50:35,148, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 11:53:25,523, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 11:53:28,292, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 11:53:38,751, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - INFO: 2019-03-02 12:00:51,659, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 12:00:55,027, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 12:07:07,439, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - WARNING: 2019-03-02 12:07:22,593, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:07:22,593, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:07:27,839, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:07:28,069, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:07:28,070, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:07:33,224, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:07:33,314, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:07:33,315, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:07:38,469, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:07:38,641, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:07:38,641, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - 192.168.1.101 - WARNING: 2019-03-02 12:07:41,363, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:07:41,363, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - WARNING: 2019-03-02 12:07:41,500, log, Unauthorized: /refresh_tokens
+WARNING: 2019-03-02 12:07:41,500, basehttp, "GET /refresh_tokens HTTP/1.1" 401 27
+INFO: 2019-03-02 12:07:43,764, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:07:43,866, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:07:43,866, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:07:49,030, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:07:49,199, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:07:49,199, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:07:54,321, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:07:54,413, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:07:54,413, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:07:59,551, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:07:59,639, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:07:59,640, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:08:04,773, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:08:04,959, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:08:04,959, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:08:10,109, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:08:10,281, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:08:10,282, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:08:15,405, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:08:15,508, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:08:15,509, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:08:20,726, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:08:21,012, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:08:21,012, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:08:26,221, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:08:26,383, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:08:26,383, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:08:31,535, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:08:31,680, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:08:31,680, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:08:36,795, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:08:36,897, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:08:36,897, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:08:42,016, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:08:42,130, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:08:42,130, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:08:47,297, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:08:47,449, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:08:47,449, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:08:52,588, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:08:52,677, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:08:52,678, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:08:57,802, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:08:57,902, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:08:57,902, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:09:03,044, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:09:03,100, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:09:03,101, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:09:08,214, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:09:08,345, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:09:08,346, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:09:13,501, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:09:13,652, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:09:13,652, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:09:18,765, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:09:18,892, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:09:18,892, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:09:24,019, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:09:24,121, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:09:24,122, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:09:29,266, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:09:29,341, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:09:29,341, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:09:34,463, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:09:34,557, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:09:34,557, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:09:39,766, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:09:39,880, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:09:39,880, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:09:45,020, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:09:45,310, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:09:45,311, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:09:50,506, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:09:50,642, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:09:50,642, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:09:55,864, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:09:55,961, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:09:55,961, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:01,090, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:10:01,181, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:10:01,182, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:06,303, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:10:06,403, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:10:06,404, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:11,534, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:10:11,621, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:10:11,621, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:16,744, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:10:16,861, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:10:16,861, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:21,997, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:10:22,173, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:10:22,173, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:27,299, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:10:27,393, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:10:27,394, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:32,515, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:10:32,620, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:10:32,620, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:37,745, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:10:37,842, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:10:37,843, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:43,010, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:10:43,083, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:10:43,084, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:48,174, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:10:48,293, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:10:48,293, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:53,471, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:10:53,612, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:10:53,613, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:10:58,913, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - INFO: 2019-03-02 12:12:10,144, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 12:12:12,969, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 12:12:38,484, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 12:12:56,847, basehttp, "POST /activate HTTP/1.1" 200 2238
+192.168.1.101 - INFO: 2019-03-02 12:13:40,289, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - WARNING: 2019-03-02 12:14:26,660, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:14:26,661, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:14:31,891, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:14:31,968, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:14:31,968, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:14:37,120, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:14:37,254, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:14:37,255, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:14:42,379, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:14:42,472, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:14:42,473, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:14:47,627, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - INFO: 2019-03-02 12:18:02,741, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 12:18:05,625, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - WARNING: 2019-03-02 12:18:07,866, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:18:07,867, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - WARNING: 2019-03-02 12:18:08,166, log, Unauthorized: /refresh_tokens
+WARNING: 2019-03-02 12:18:08,167, basehttp, "GET /refresh_tokens HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:18:28,733, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 12:26:25,404, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 12:26:30,554, basehttp, "POST /activate HTTP/1.1" 200 2238
+192.168.1.101 - INFO: 2019-03-02 12:26:35,641, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - INFO: 2019-03-02 12:27:00,566, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 12:27:03,515, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 12:27:16,805, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - WARNING: 2019-03-02 12:27:31,956, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:27:31,956, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:27:37,200, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - INFO: 2019-03-02 12:30:45,999, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 12:30:48,937, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 12:31:19,018, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - WARNING: 2019-03-02 12:31:46,546, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:31:46,547, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:31:51,763, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:31:51,978, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:31:51,978, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:31:57,092, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:31:57,238, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:31:57,239, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:32:02,358, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:32:02,450, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:32:02,450, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:32:07,594, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:32:07,678, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:32:07,679, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:32:12,820, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:32:12,886, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:32:12,887, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:32:18,012, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:32:18,084, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:32:18,085, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:32:23,203, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:32:23,275, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:32:23,276, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:32:28,395, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:32:28,581, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:32:28,582, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:32:33,765, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:32:33,905, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:32:33,906, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:32:39,124, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:32:39,276, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:32:39,277, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:32:44,405, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:32:44,486, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:32:44,487, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:32:49,666, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:32:49,744, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:32:49,744, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:32:54,856, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:32:55,004, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:32:55,004, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:00,242, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:00,427, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:00,427, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:05,617, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:05,732, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:05,732, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:10,854, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:10,923, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:10,923, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:16,035, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:16,165, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:16,165, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:21,282, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:21,397, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:21,397, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:26,519, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:26,628, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:26,629, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:31,756, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:31,866, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:31,866, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:37,174, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:37,285, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:37,285, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:42,406, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:42,471, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:42,472, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:47,587, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:47,899, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:47,900, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:53,157, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:53,252, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:53,252, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:33:58,386, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:33:58,493, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:33:58,493, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:34:03,644, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:34:03,807, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:34:03,807, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:34:08,937, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:34:09,031, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:34:09,032, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:34:14,150, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:34:14,278, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:34:14,278, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:34:19,372, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:34:19,475, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:34:19,475, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:34:24,587, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:34:24,686, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:34:24,686, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:34:29,804, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:34:29,918, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:34:29,918, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:34:35,053, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:34:35,135, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:34:35,136, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:34:40,256, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:34:40,373, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:34:40,374, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:34:45,635, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:34:45,787, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:34:45,787, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:34:50,906, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:34:51,009, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:34:51,009, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:34:56,128, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:34:56,233, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:34:56,234, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:01,545, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:01,659, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:01,659, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:06,794, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:06,882, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:06,882, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:12,015, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:12,152, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:12,152, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:17,399, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:17,533, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:17,534, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:22,657, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:22,754, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:22,755, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:27,882, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:27,988, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:27,989, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:33,253, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:33,399, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:33,400, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:38,907, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:38,982, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:38,982, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:44,114, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:44,187, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:44,188, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:49,292, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:49,522, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:49,523, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:54,618, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:54,685, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:54,685, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:35:59,822, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:35:59,922, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:35:59,923, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:36:05,104, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:36:05,260, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:36:05,261, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:36:10,373, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:36:10,437, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:36:10,437, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:36:15,599, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:36:15,668, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:36:15,668, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:36:20,880, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:36:21,019, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:36:21,020, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:36:26,149, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:36:26,234, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:36:26,235, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:36:31,352, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:36:31,472, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:36:31,472, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:36:36,698, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:36:36,798, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:36:36,799, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:36:42,046, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:36:42,209, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:36:42,209, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:36:47,429, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:36:47,500, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:36:47,500, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:36:52,785, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:36:52,849, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:36:52,849, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:36:57,979, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:36:58,208, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:36:58,209, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:37:03,447, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:37:03,616, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:37:03,616, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:37:08,751, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:37:08,840, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:37:08,840, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:37:13,977, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:37:14,046, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:37:14,047, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:37:19,178, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:37:19,274, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:37:19,274, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:37:24,386, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:37:24,516, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:37:24,516, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:37:29,730, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:37:29,827, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:37:29,827, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:37:34,943, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:37:35,075, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:37:35,075, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:37:40,192, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:37:40,289, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:37:40,289, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:37:45,407, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:37:45,499, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:37:45,499, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:37:50,621, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - WARNING: 2019-03-02 12:37:50,719, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:37:50,720, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:37:56,012, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - INFO: 2019-03-02 12:39:32,086, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 12:39:34,843, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - WARNING: 2019-03-02 12:39:39,802, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:39:39,802, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - WARNING: 2019-03-02 12:39:40,027, log, Unauthorized: /refresh_tokens
+WARNING: 2019-03-02 12:39:40,027, basehttp, "GET /refresh_tokens HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:39:44,446, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 12:39:50,623, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 12:39:56,972, basehttp, "POST /activate HTTP/1.1" 200 2238
+192.168.1.101 - WARNING: 2019-03-02 12:41:42,448, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:41:42,449, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - WARNING: 2019-03-02 12:41:42,557, log, Unauthorized: /refresh_tokens
+WARNING: 2019-03-02 12:41:42,558, basehttp, "GET /refresh_tokens HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 12:41:46,218, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 12:41:57,640, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 12:42:03,832, basehttp, "POST /activate HTTP/1.1" 200 2238
+192.168.1.101 - WARNING: 2019-03-02 12:42:05,440, log, Unauthorized: /user_games
+WARNING: 2019-03-02 12:42:05,441, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - WARNING: 2019-03-02 12:42:05,526, log, Unauthorized: /refresh_tokens
+WARNING: 2019-03-02 12:42:05,527, basehttp, "GET /refresh_tokens HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 13:05:12,303, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 13:05:15,080, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 13:07:00,444, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 13:07:03,257, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 13:07:21,843, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 13:07:27,521, basehttp, "POST /activate HTTP/1.1" 200 189
+192.168.1.101 - INFO: 2019-03-02 13:12:27,977, basehttp, "POST /signup HTTP/1.1" 200 2201
+192.168.1.101 - INFO: 2019-03-02 13:12:30,641, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - WARNING: 2019-03-02 13:12:32,218, log, Unauthorized: /user_games
+WARNING: 2019-03-02 13:12:32,219, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - WARNING: 2019-03-02 13:12:32,343, log, Unauthorized: /refresh_tokens
+WARNING: 2019-03-02 13:12:32,344, basehttp, "GET /refresh_tokens HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 13:12:36,378, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 13:12:43,363, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 13:12:52,260, basehttp, "POST /activate HTTP/1.1" 200 2253
+192.168.1.101 - WARNING: 2019-03-02 13:12:54,024, log, Unauthorized: /user_games
+WARNING: 2019-03-02 13:12:54,025, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - WARNING: 2019-03-02 13:12:54,152, log, Unauthorized: /refresh_tokens
+WARNING: 2019-03-02 13:12:54,153, basehttp, "GET /refresh_tokens HTTP/1.1" 401 27
+192.168.1.95 - INFO: 2019-03-02 13:15:06,955, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 13:22:16,846, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 13:22:19,805, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 13:23:55,086, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 13:23:57,923, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 13:24:10,906, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 13:24:17,740, basehttp, "POST /activate HTTP/1.1" 200 189
+192.168.1.101 - INFO: 2019-03-02 13:27:12,502, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 13:27:15,681, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 13:28:35,325, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 13:28:42,370, basehttp, "POST /activate HTTP/1.1" 200 189
+192.168.1.101 - INFO: 2019-03-02 13:36:41,191, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 13:36:44,262, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 13:40:02,536, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 13:40:08,839, basehttp, "POST /activate HTTP/1.1" 200 2238
+192.168.1.101 - INFO: 2019-03-02 13:40:13,035, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - INFO: 2019-03-02 13:40:49,834, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - WARNING: 2019-03-02 13:42:36,358, log, Unauthorized: /user_games
+WARNING: 2019-03-02 13:42:36,359, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - WARNING: 2019-03-02 13:42:36,506, log, Unauthorized: /refresh_tokens
+WARNING: 2019-03-02 13:42:36,506, basehttp, "GET /refresh_tokens HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 13:43:28,937, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 13:43:36,821, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 13:43:42,550, basehttp, "POST /activate HTTP/1.1" 200 2238
+192.168.1.101 - INFO: 2019-03-02 13:43:56,310, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - WARNING: 2019-03-02 13:44:07,713, log, Unauthorized: /user_games
+WARNING: 2019-03-02 13:44:07,714, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - WARNING: 2019-03-02 13:44:07,788, log, Unauthorized: /refresh_tokens
+WARNING: 2019-03-02 13:44:07,789, basehttp, "GET /refresh_tokens HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 13:46:23,454, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 13:46:26,510, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 13:46:39,299, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - WARNING: 2019-03-02 13:46:48,313, log, Bad Request: /activate
+WARNING: 2019-03-02 13:46:48,313, basehttp, "POST /activate HTTP/1.1" 400 29
+192.168.1.101 - WARNING: 2019-03-02 13:47:09,504, log, Bad Request: /activate
+WARNING: 2019-03-02 13:47:09,504, basehttp, "POST /activate HTTP/1.1" 400 29
+192.168.1.101 - INFO: 2019-03-02 13:47:14,412, basehttp, "POST /login HTTP/1.1" 200 19
+192.168.1.101 - INFO: 2019-03-02 13:47:22,557, basehttp, "POST /activate HTTP/1.1" 200 2238
+192.168.1.101 - INFO: 2019-03-02 13:47:27,539, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - WARNING: 2019-03-02 13:49:53,658, log, Unauthorized: /user_games
+WARNING: 2019-03-02 13:49:53,658, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 13:49:59,665, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - INFO: 2019-03-02 13:50:04,522, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - INFO: 2019-03-02 13:53:53,815, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 13:53:57,379, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 13:54:04,580, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - WARNING: 2019-03-02 13:54:19,441, log, Unauthorized: /user_games
+WARNING: 2019-03-02 13:54:19,441, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 13:54:25,505, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - INFO: 2019-03-02 13:54:28,000, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - WARNING: 2019-03-02 13:55:06,120, log, Unauthorized: /user_games
+WARNING: 2019-03-02 13:55:06,121, basehttp, "GET /user_games HTTP/1.1" 401 27
+192.168.1.101 - INFO: 2019-03-02 13:55:07,513, basehttp, "GET /refresh_tokens HTTP/1.1" 200 2085
+192.168.1.101 - INFO: 2019-03-02 13:55:09,610, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - INFO: 2019-03-02 13:55:23,500, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 13:55:26,344, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 13:55:29,867, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - INFO: 2019-03-02 14:03:26,839, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 14:03:29,586, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 14:05:45,066, basehttp, "GET /game_detail?id=96209 HTTP/1.1" 200 1039
+192.168.1.101 - 192.168.1.101 - INFO: 2019-03-02 14:05:47,484, basehttp, "GET /media/screenshot/FIFA_19.jpg HTTP/1.1" 200 91163
+192.168.1.101 - INFO: 2019-03-02 14:05:48,083, basehttp, "GET /media/screenshot/FIFA_19_Dlm8SvT.jpg HTTP/1.1" 200 58561
+INFO: 2019-03-02 14:05:49,642, basehttp, "GET /media/screenshot/FIFA_19.jpg HTTP/1.1" 200 91163
+192.168.1.101 - INFO: 2019-03-02 14:06:13,186, basehttp, "GET /game_detail?id=104 HTTP/1.1" 200 2011
+192.168.1.101 - INFO: 2019-03-02 14:06:17,900, basehttp, "GET /seller_detail?id=11 HTTP/1.1" 200 347
+192.168.1.101 - INFO: 2019-03-02 14:06:33,839, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 14:06:36,634, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 14:06:40,620, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 14:06:43,034, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 14:06:46,664, basehttp, "GET /game_detail?id=104 HTTP/1.1" 200 2011
+192.168.1.101 - INFO: 2019-03-02 14:06:51,308, basehttp, "GET /seller_detail?id=11 HTTP/1.1" 200 347
+192.168.1.101 - INFO: 2019-03-02 14:21:05,363, basehttp, "GET /game_detail?id=2449 HTTP/1.1" 200 1533
+192.168.1.101 - 192.168.1.101 - INFO: 2019-03-02 14:21:07,858, basehttp, "GET /media/screenshot/Lightning_Returns_Final_Fantasy_XIII.jpg HTTP/1.1" 200 65158
+192.168.1.101 - INFO: 2019-03-02 14:21:08,180, basehttp, "GET /media/screenshot/Lightning_Returns_Final_Fantasy_XIII_r8ozB2z.jpg HTTP/1.1" 200 47762
+192.168.1.101 - INFO: 2019-03-02 14:21:10,074, basehttp, "GET /media/screenshot/Lightning_Returns_Final_Fantasy_XIII.jpg HTTP/1.1" 200 65158
+INFO: 2019-03-02 14:21:10,507, basehttp, "GET /media/screenshot/Lightning_Returns_Final_Fantasy_XIII_Eh63gHo.jpg HTTP/1.1" 200 53630
+192.168.1.101 - INFO: 2019-03-02 14:21:12,546, basehttp, "GET /media/screenshot/Lightning_Returns_Final_Fantasy_XIII_Eh63gHo.jpg HTTP/1.1" 200 53630
+192.168.1.101 - INFO: 2019-03-02 14:22:10,691, basehttp, "GET /media/screenshot/Lightning_Returns_Final_Fantasy_XIII_Eh63gHo.jpg HTTP/1.1" 200 53630
+192.168.1.101 - INFO: 2019-03-02 14:22:15,014, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 14:22:17,321, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 14:22:47,616, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 14:22:50,429, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 14:23:10,872, basehttp, "GET /game_detail?id=82090 HTTP/1.1" 200 1608
+192.168.1.101 - INFO: 2019-03-02 14:23:15,447, basehttp, "GET /seller_detail?id=12 HTTP/1.1" 200 538
+192.168.1.101 - 192.168.1.101 - 192.168.1.101 - INFO: 2019-03-02 14:23:17,838, basehttp, "GET /media/seller_photos/IMG-20190225-WA0001.jpg HTTP/1.1" 200 128565
+INFO: 2019-03-02 14:23:17,862, basehttp, "GET /media/seller_photos/IMG-20190225-WA0000.jpg HTTP/1.1" 200 125612
+192.168.1.101 - 192.168.1.101 - 192.168.1.101 - INFO: 2019-03-02 14:23:20,526, basehttp, "GET /media/seller_photos/IMG-20190225-WA0000.jpg HTTP/1.1" 200 90112
+INFO: 2019-03-02 14:23:20,529, basehttp, "GET /media/seller_photos/IMG-20190225-WA0001.jpg HTTP/1.1" 200 90112
+INFO: 2019-03-02 14:23:20,529, basehttp, "GET /media/seller_photos/IMG_20190215_235029_528_V0Dl8Rr.jpg HTTP/1.1" 200 827392
+INFO: 2019-03-02 14:23:20,529, basehttp, "GET /media/seller_photos/IMG_20190215_235029_528_V0Dl8Rr.jpg HTTP/1.1" 200 90112
+ERROR: 2019-03-02 14:23:20,737, basehttp, "GET /media/seller_photos/IMG_20190215_235029_528_V0Dl8Rr.jpg HTTP/1.1" 500 59
+ERROR: 2019-03-02 14:23:20,738, basehttp, "GET /media/seller_photos/IMG-20190225-WA0000.jpg HTTP/1.1" 500 59
+ERROR: 2019-03-02 14:23:20,738, basehttp, "GET /media/seller_photos/IMG_20190215_235029_528_V0Dl8Rr.jpg HTTP/1.1" 500 59
+ERROR: 2019-03-02 14:23:20,738, basehttp, "GET /media/seller_photos/IMG-20190225-WA0001.jpg HTTP/1.1" 500 59
+192.168.1.101 - INFO: 2019-03-02 14:23:48,203, basehttp, "GET /find?gameName=ass HTTP/1.1" 200 525
+192.168.1.101 - INFO: 2019-03-02 14:24:17,684, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 14:24:38,902, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 14:24:41,723, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 14:25:26,575, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 14:25:36,245, basehttp, "GET /game_detail?id=104 HTTP/1.1" 200 2011
+192.168.1.101 - INFO: 2019-03-02 14:25:41,366, basehttp, "GET /seller_detail?id=11 HTTP/1.1" 200 347
+192.168.1.101 - INFO: 2019-03-02 14:30:13,382, basehttp, "GET /user_games HTTP/1.1" 200 183
+192.168.1.101 - INFO: 2019-03-02 14:35:07,200, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 14:35:23,122, basehttp, "GET /game_detail?id=104 HTTP/1.1" 200 2011
+192.168.1.101 - INFO: 2019-03-02 14:38:22,349, basehttp, "GET /game_detail?id=103054 HTTP/1.1" 200 2150
+192.168.1.101 - 192.168.1.101 - INFO: 2019-03-02 14:38:24,574, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey.jpg HTTP/1.1" 200 52611
+192.168.1.101 - INFO: 2019-03-02 14:38:25,074, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_bqSWJrP.jpg HTTP/1.1" 200 56186
+192.168.1.101 - INFO: 2019-03-02 14:38:26,705, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey.jpg HTTP/1.1" 200 52611
+INFO: 2019-03-02 14:38:27,648, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_xT364mL.jpg HTTP/1.1" 200 82074
+192.168.1.101 - INFO: 2019-03-02 14:38:29,996, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_mWfih8e.jpg HTTP/1.1" 200 62456
+192.168.1.101 - INFO: 2019-03-02 14:38:32,670, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_IQiqI80.jpg HTTP/1.1" 200 78733
+192.168.1.101 - INFO: 2019-03-02 14:38:34,977, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_R5DrhOd.jpg HTTP/1.1" 200 70682
+192.168.1.101 - INFO: 2019-03-02 14:38:37,494, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_fRhHDbf.jpg HTTP/1.1" 200 88144
+192.168.1.101 - INFO: 2019-03-02 14:38:39,993, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_Si96Enr.jpg HTTP/1.1" 200 139771
+192.168.1.101 - INFO: 2019-03-02 14:38:42,484, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_vH8OPcU.jpg HTTP/1.1" 200 100647
+192.168.1.101 - INFO: 2019-03-02 14:38:45,011, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_9mtv9i1.jpg HTTP/1.1" 200 70323
+192.168.1.101 - INFO: 2019-03-02 14:38:47,472, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_ZUSNvUI.jpg HTTP/1.1" 200 66866
+192.168.1.101 - INFO: 2019-03-02 14:38:49,987, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_OKYz4nR.jpg HTTP/1.1" 200 45457
+192.168.1.101 - INFO: 2019-03-02 14:38:52,088, basehttp, "GET /media/screenshot/Assassins_Creed_Odyssey_OKYz4nR.jpg HTTP/1.1" 200 45457
+192.168.1.101 - INFO: 2019-03-02 14:41:58,017, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 14:42:00,924, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 14:42:05,207, basehttp, "GET /game_detail?id=104 HTTP/1.1" 200 2011
+192.168.1.101 - INFO: 2019-03-02 14:45:09,240, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 14:45:12,180, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 14:59:55,299, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 15:09:50,929, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 15:09:54,007, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 15:51:49,698, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 15:51:52,554, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 15:58:19,453, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 15:58:22,486, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 16:02:11,022, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 16:02:14,048, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 16:02:26,428, basehttp, "GET /game_detail?id=104 HTTP/1.1" 200 2011
+192.168.1.101 - INFO: 2019-03-02 16:06:47,372, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 16:06:50,543, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.101 - INFO: 2019-03-02 16:07:31,678, basehttp, "GET /game_detail?id=104 HTTP/1.1" 200 2011
+192.168.1.101 - INFO: 2019-03-02 16:07:58,700, basehttp, "GET /game_detail?id=104&location=37.22522522522522%2C49.578399161084725 HTTP/1.1" 200 2011
+192.168.1.101 - INFO: 2019-03-02 16:09:36,557, basehttp, "GET /version_control HTTP/1.1" 200 32
+192.168.1.101 - INFO: 2019-03-02 16:09:39,399, basehttp, "GET /main_games HTTP/1.1" 200 2818
+192.168.1.95 - WARNING: 2019-03-03 11:19:47,289, log, Not Acceptable: /login
+WARNING: 2019-03-03 11:19:47,289, basehttp, "POST /login HTTP/1.1" 406 52
+192.168.1.95 - INFO: 2019-03-03 12:03:29,204, basehttp, "GET /version_control HTTP/1.1" 200 32
