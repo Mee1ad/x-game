@@ -5,7 +5,6 @@ from django.views import View
 from xgame.models import *
 from .Consts import Vars
 from .igdb import Cache
-import requests
 
 
 class GameTile(Vars):
@@ -16,8 +15,11 @@ class GameTile(Vars):
             my_game = {'id': game['pk'], 'name': g['name'], 'platform': g['platform']}
             seller_exists = Seller.objects.filter(game=game['pk']).exists()
             my_game['available'] = False
-            cover = Media.objects.get(type=0, table_id=game['pk'])
-            my_game['cover'] = self.media + cover.cover.url
+            cover_exists = Media.objects.filter(type=0, table_id=game['pk']).exists()
+            cover = ""
+            if cover_exists:
+                cover = Media.objects.get(type=0, table_id=game['pk'])
+                my_game['cover'] = self.media + cover.cover.url
             if seller_exists:
                 sellers = Seller.objects.filter(game=game['pk'])
                 sellers = self.string_to_list(sellers)
@@ -46,15 +48,56 @@ class MainGames(GameTile):
         return JsonResponse(res)
 
 
+class Search(GameTile):
+    @try_except
+    def post(self, request):
+        data = json.loads(request.body)
+        game_name = data['gameName']
+        games = Game.objects.filter(name__icontains=f'{game_name}')
+        games = self.string_to_list(games)
+        games = self.games(self, games)
+        res = {'games': games}
+        return JsonResponse(res)
+
+
+class UserGames(GameTile):
+
+    @try_except
+    def get(self, request):
+        seller_exists = Seller.objects.filter(user_id=request.user.id).exists()
+        my_games = []
+        if seller_exists:
+            sellers = Seller.objects.filter(user_id=request.user.id)
+            for seller in sellers:
+                seller = self.string_to_list([seller])
+                seller = seller[0]['fields']
+                game_detail = {}
+                game_detail['price'] = seller['price']
+                game_detail['date'] = seller['created_at'].split(',')[0]
+                game_detail['active'] = seller['active']
+                game = Game.objects.get(pk=seller['game'])
+                game = self.string_to_list([game])
+                game_detail['game_name'] = game[0]['fields']['name']
+                game_detail['game_id'] = game[0]['pk']
+                cover_exists = Media.objects.filter(type=0, table_id=game[0]['pk']).exists()
+                if cover_exists:
+                    cover = Media.objects.get(type=0, table_id=game[0]['pk'])
+                    game_detail['cover'] = self.media + cover.cover.url
+                my_games.append(game_detail)
+        res = {'games': my_games}
+        return JsonResponse(res)
+
+
 class GameDetail(Cache):
     @try_except
     def get(self, request):
         game_id = request.GET.get('id', '')
         game_exists = Game.objects.filter(id=game_id).exists()
         if not game_exists:
-            return self.cache(game_id)
+            self.cache(game_id)
+            return self.response()
         game = self.get_game(game_id)
-        sellers_detail = self.get_sellers(game_id)
+        sellers_detail = self.get_sellers_with_game_id(game_id)
         comments = self.get_reviews(game_id)
         res = {'game': game[0]['fields'], 'sellers': sellers_detail, 'reviews': comments}
         return JsonResponse(res)
@@ -71,21 +114,32 @@ class GameDetail(Cache):
         game[0]['fields']['cover'] = self.media + cover.cover.url
         return game
 
-    def get_sellers(self, game_id):
+    def get_sellers_with_user_id(self, user_id):
+        all_sellers = Seller.objects.filter(user_id=user_id).exists()
+        if all_sellers:
+            all_sellers = Seller.objects.filter(user_id=user_id)
+            return self.get_seller(all_sellers)
+        else:
+            return None
+
+    def get_sellers_with_game_id(self, game_id):
         all_sellers = Seller.objects.filter(game_id=game_id).exists()
         if all_sellers:
             all_sellers = Seller.objects.filter(game_id=game_id)
-            all_sellers = self.string_to_list(all_sellers)
-            sellers_detail = []
-            for seller in all_sellers:
-                s = seller['fields']
-                user = User.objects.get(pk=s['user'])
-                seller_detail = {'id': seller['pk'], 'name': f'{user.first_name} {user.last_name}', 'price': s['price'], 'platform': s['platform'],
-                                 'new': s['new'], 'city': s['city']}
-                sellers_detail.append(seller_detail)
-            return sellers_detail
+            return self.get_seller(all_sellers)
         else:
             return None
+
+    def get_seller(self, all_sellers):
+        all_sellers = self.string_to_list(all_sellers)
+        sellers_detail = []
+        for seller in all_sellers:
+            s = seller['fields']
+            user = User.objects.get(pk=s['user'])
+            seller_detail = {'id': seller['pk'], 'name': f'{user.first_name} {user.last_name}', 'price': s['price'],
+                             'platform': s['platform'], 'active': s['active'], 'new': s['new'], 'city': s['city']}
+            sellers_detail.append(seller_detail)
+        return sellers_detail
 
     def get_reviews(self, game_id):
         all_comments = Comment.objects.filter(game_id=game_id).exists()
@@ -126,19 +180,7 @@ class SellerDetail(Vars):
         return JsonResponse(res)
 
 
-class Search(GameTile):
-    @try_except
-    def post(self, request):
-        data = json.loads(request.body)
-        game_name = data['gameName']
-        games = Game.objects.filter(name__icontains=f'{game_name}')
-        games = self.string_to_list(games)
-        games = self.games(self, games)
-        res = {'games': games}
-        return JsonResponse(res)
-
-
-class Review(View):
+class AddReview(View):
     @try_except
     def post(self, request):
         data = json.loads(request.body)
@@ -148,61 +190,22 @@ class Review(View):
         return JsonResponse(res, status=201)
 
 
-class GetCountries(Vars):
-    @try_except
-    def get(self, request):
-        r = requests.get(self.battuta + '/country/all/?key=' + self.battuta_key)
-        data = {'countries': r.json()}
-        return JsonResponse(data)
-
-
-class GetRegions(Vars):
-    @try_except
-    def get(self, request):
-        country_code = request.GET.get('countryCode', '')
-        r = requests.get(self.battuta + f'/region/{country_code}/all/?key=' + self.battuta_key)
-        data = {'regions': r.json()}
-        return JsonResponse(data)
-
-
-class GetCities(Vars):
-    @try_except
-    def get(self, request):
-        country_code = request.GET.get('countryCode', '')
-        region_code = request.GET.get('regionCode', '')
-        r = requests.get(self.battuta + f'/city/{country_code}/search/?region={region_code}&key='
-                         + self.battuta_key)
-        print(r)
-        data = {'cities': r.json()}
-        return JsonResponse(data)
-
-
-class AddSell(Vars):
+class AddSell(Cache):
     @try_except
     def post(self, request):
         data = json.loads(request.POST.get('data'))
-        sell = Seller(user_id=request.user.id, game_id=data['id'], platform=data['platform'],
+        game_id = data['game_id']
+        game_exists = Game.objects.filter(id=game_id).exists()
+        if not game_exists:
+            self.cache(game_id)
+            self.cache_game()
+        sell = Seller(user_id=request.user.id, game_id=game_id, platform=data['platform'],
                       description=data['description'], location=data['location'], address=data['address'],
-                      city=data['city'], new=data['new'], price=data['price'], phone=data['phone'])
+                      city="", new=data['new'], price=data['price'], phone=data['phone'])
         sell.save()
         for image in request.FILES.getlist('file'):
-            media = Media(table_id=data['id'], seller_photos=image, type=3)
-            media.save()
+            if image is not None:
+                media = Media(table_id=sell.id, seller_photos=image, type=3)
+                media.save()
         res = {"message": "Uploaded Successfully"}
         return JsonResponse(res)
-
-
-class VideoUpload(Vars):
-    @try_except
-    def post(self, request):
-        file = request.FILES['myfile']
-        media = Media.objects.get(pk=149)
-        media.image = file
-        media.save()
-        # fs = FileSystemStorage()
-        # fs.save(file.name, file)
-        # print(filename)
-        # uploaded_file_url = fs.url(filename)
-        # print(uploaded_file_url)
-        return HttpResponse("ok")
-

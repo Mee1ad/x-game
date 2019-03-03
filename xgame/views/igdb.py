@@ -20,11 +20,12 @@ class Find(Vars):
 
     def find_game(self, game_name):
         data = f'fields name, game, published_at; search "{game_name}"; where game != null;'
-        headers = {'user-key': self.api_key, 'Accept': 'application/json'}
-        r = requests.get(self.base_url + '/search', data=data, headers=headers)
+        headers = {'user-key': self.api_key, 'Accept': 'application/json', 'user-agent': self.user_agent}
+        r = requests.post(self.base_url + '/search', data=data, headers=headers)
+        print(r.status_code)
         data = r.json()
-        if 'published_at' in data:
-            data = sorted(data, key=lambda i: i['published_at'])
+        # if 'published_at' in data:
+        #     data = sorted(data, key=lambda i: i['published_at'])
         res = {'games': data}
         return JsonResponse(res)
 
@@ -33,16 +34,23 @@ class Cache(Vars):
     data = []
     res = {"message": "Cache failed"}
     links = []
+    my_game = []
+    screenshots = []
+    url = ""
+    game = None
+    video = None
 
     def cache(self, game_id):
-        print("Caching...")
+        print("Getting Game Data...")
         data = f"fields id, player_perspectives.name, alternative_names.name, collection.name, cover.image_id, first_release_date, genres.name, hypes, involved_companies.company.name, involved_companies.developer, involved_companies.publisher, name, platforms.name, popularity, total_rating, total_rating_count, screenshots.image_id, summary, themes.name, videos.video_id; where id = {game_id};"
-        headers = {'user-key': self.api_key, 'Accept': 'application/json'}
+        headers = {'user-key': self.api_key, 'Accept': 'application/json', 'user-agent': self.user_agent}
         r = requests.get(self.base_url + '/games', data=data, headers=headers)
         self.data = r.json()
-        return self.game_cache()
+        if len(r.json()) == 0:
+            return
+        return self.game_details()
 
-    def game_cache(self):
+    def game_details(self):
         data = self.data[0]
         game_exists = Game.objects.filter(id=data['id']).exists()
         if game_exists:
@@ -81,44 +89,49 @@ class Cache(Vars):
                 if developer['developer']:
                     developers.append(developer['company']['name'].replace(",", "."))
 
-        game = Game(id=data['id'], name=data['name'], perspective=perspective, alternative_names=alternative_names,
-                    first_release_date=data['first_release_date'] if 'first_release_date' in data else None,
-                    hypes=data['hypes'] if 'hypes' in data else 0, popularity=data['popularity'],
-                    total_rating=data['total_rating'] if 'total_rating' in data else 0, developer=developers,
-                    total_rating_count=data['total_rating_count'] if 'total_rating_count' in data else 0,
-                    summary=data['summary'] if 'summary' in data else None, platform=platforms, genre=genres,
-                    theme=themes, publisher=publishers, collection=collection)
-        game.save()
-        my_game = self.string_to_list([game])
-        if 'videos' in data:
-            my_game[0]['fields']['video'] = []
-            for video in data['videos']:
-                v = Media(table_id=game.id, media_id=video['video_id'], type=2)
-                v.save()
-                link = 'https://www.youtube.com/watch?v=' + video['video_id']
-                my_game[0]['fields']['video'].append(link)
-                # in new thread
-                self.links.append(link)
-            # video_thread = UploadVideo(self.links)
-            # video_thread.start()
+        self.game = Game(id=data['id'], name=data['name'], perspective=perspective, alternative_names=alternative_names,
+                         first_release_date=data['first_release_date'] if 'first_release_date' in data else None,
+                         hypes=data['hypes'] if 'hypes' in data else 0, popularity=data['popularity'],
+                         total_rating=data['total_rating'] if 'total_rating' in data else 0, developer=developers,
+                         total_rating_count=data['total_rating_count'] if 'total_rating_count' in data else 0,
+                         summary=data['summary'] if 'summary' in data else None, platform=platforms, genre=genres,
+                         theme=themes, publisher=publishers, collection=collection)
 
+        self.my_game = self.string_to_list([self.game])
+
+        if 'videos' in data:
+            self.my_game[0]['fields']['video'] = []
+            for v in data['videos']:
+                self.video = Media(table_id=self.game.id, media_id=v['video_id'], type=2)
+                link = 'https://www.youtube.com/watch?v=' + v['video_id']
+                self.my_game[0]['fields']['video'].append(link)
+                self.links.append(link)
+        self.screenshots = []
         if 'screenshots' in data:
-            screenshots = []
             for screen in data['screenshots']:
                 url = self.screenshot + screen['image_id'] + '.jpg'
-                screenshots.append(url)
-            my_game[0]['fields']['screenshots'] = screenshots
-            # new thread
-            screenshot_thread = UploadScreen(screenshots, game.id, game.name)
-            screenshot_thread.start()
+                self.screenshots.append(url)
+            self.my_game[0]['fields']['screenshots'] = self.screenshots
         if 'cover' in data:
-            url = self.cover + data['cover']['image_id'] + '.jpg'
-            my_game[0]['fields']['cover'] = url
-            # new thread
-            cover_thread = UploadCover(url, game.id, game.name)
-            cover_thread.start()
+            self.url = self.cover + data['cover']['image_id'] + '.jpg'
+            self.my_game[0]['fields']['cover'] = self.url
+
+    def cache_game(self):
+        print("Caching...")
+        self.game.save()
+        self.video.save()
+        # video_thread = UploadVideo(self.links)
+        # video_thread.start()
+        screenshot_thread = UploadScreen(self.screenshots, self.game.id, self.game.name)
+        screenshot_thread.start()
+        cover_thread = UploadCover(self.url, self.game.id, self.game.name)
+        cover_thread.start()
         print("Cached Successfully")
-        res = {'game': my_game[0]['fields']}
+
+    def response(self):
+        if len(self.my_game) == 0:
+            return JsonResponse({"Message": "Game Not Found"}, status=404)
+        res = {'game': self.my_game[0]['fields']}
         return JsonResponse(res)
 
 

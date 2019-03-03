@@ -9,7 +9,7 @@ from django.contrib.auth.validators import UnicodeUsernameValidator
 class Game(Model):
     def __str__(self):
         return self.name
-    id = models.BigIntegerField(primary_key=True)
+    id = models.BigIntegerField(primary_key=True, serialize=True)
     name = models.CharField(max_length=255)
     popularity = models.FloatField(default=0, blank=True, null=True)
     total_rating = models.FloatField(default=0, blank=True, null=True)
@@ -51,8 +51,8 @@ class User(AbstractUser):
 
     username = models.CharField(max_length=150, verbose_name='username',
                                 validators=[UnicodeUsernameValidator()], unique=True, null=True, blank=True)
-    phone = models.CharField(max_length=13)
-    device_id = models.CharField(max_length=127)
+    phone = models.CharField(max_length=13, unique=True)
+    device_id = models.CharField(max_length=127, unique=True)
     platform = models.SmallIntegerField(null=True, blank=True)
     is_active = models.BooleanField(default=False)
     address = models.TextField(null=True, blank=True)
@@ -61,16 +61,18 @@ class User(AbstractUser):
     activation_expire = models.DateTimeField()
     access_token = models.TextField(max_length=1023, null=True, blank=True)
     refresh_token = models.TextField(max_length=1023, null=True, blank=True)
+    firebase_id = models.TextField()
     access_token_expire = models.DateTimeField(auto_now_add=True)
     refresh_token_expire = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    suspend = models.BooleanField(default=False)
 
 
 class Seller(Model):
     def __str__(self):
         sell = f'{self.id} - {self.game}: {self.price}, {self.platform}'
         return sell
-    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False)
+    id = models.BigAutoField(auto_created=True, primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     platform = models.SmallIntegerField()
@@ -78,12 +80,14 @@ class Seller(Model):
     location = models.CharField(max_length=255)
     address = models.TextField(default="", blank=True)
     city = models.CharField(default="", max_length=255)
+    phone = models.CharField(max_length=13)
     new = models.BooleanField(default=False)
     price = models.IntegerField()
     sold = models.BooleanField(default=False)
     trends = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=False)
 
     def get_json(self):
         json_rep = {}
