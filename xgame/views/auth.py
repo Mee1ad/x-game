@@ -7,7 +7,6 @@ from .Consts import Vars, Validation
 from .api import GameDetail
 import random
 import json
-from ratelimit.mixins import RatelimitMixin
 
 
 class Test(Validation):
