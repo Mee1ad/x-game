@@ -4,23 +4,30 @@ url = '192.168.1.95/'
 # url = '192.168.43.2'
 # url = 'localhost/'
 # url = 'https://XGame.pythonanywhere.com'
-accessToken = 'df0c6e4655e6ae382a206f00f47d4ee8be28e2112861b792b2f213fe93ef9a5f1c6aa724ac79974d99d95dfc92b4b1c0a2a4070599ade28703e05968235f8a3cafd24a63c39389ecd49e0317c3d7587db01b9276641136798da43434261d9b9b505187eb0c4580cbd1376ade3fed5825cde5e298a6fb1f03a1a1227c25ca88eda452c8414dd326ee69f39cdeb5e31ad6735628f8db8e50a47b782bfa7f5e7944508cf1eb22d07d6d514ca639314ffa742af62fc63e5f84f562010bb6804f5df344f85d7feab3a1970dabd4307c801b27f99b211303c68622aa3f02f1dc49685a9ffe80a89d77d91043b0c3a3238e84cd50402cf77b5924bb37e22fc4a1a06d923afd5ce3d69f4a387332f8cf2d5876790a69c345d336cd4472adbe045040dd87c812468b0433789a0fbfb729454ce276a0ebafabadc800aac20fc8d701d4ba6939558f3517bafc2d724540b3547ee21af73b43d3edef43e07559769e73a14f0b4670fbfd12f2cd9eaab18fb865abddea1afa1a35bcacc8d973df705d5dfe6f24f47766dc3e25b6b8ac0dd6f3a81b603a0f5584704ab6bc045d80d16da3b4efa199bfd72fb72c592270740dd6525dff5da218fbecbe16c4f605305eecd3e3c07450f8ef93946c5a0b060428b4babc69b5869f467a7fbc627288ae5843c03204fe8aa04105eaa0ac904047fa09976f8dabfadbf3cc2889b262f7e228700c3fa3'
-refreshToken = 'adb218af8675900b629e12bc3702f850bdb0c246e308270874452cc1c768dc56d6ea72d705a7815baa7fada653cc45eb9702bed9d012cd5209d5784ce0b7a2db76e37e6c2687ba2a96838577bdb3986a869a3a3727e46f3be9e0606aa72ec3c20122326469c761a9d671868613e014186c4bcb743fe888d488caa2588e86d3d3691b8962b801045a09e14a13308d8d02f63ec096e4cafd67bd3a255aacb9869d94e5c14c367db64384f568df30075357eb2b6c0f2ea326cf8b3ab452d19fb49e4ee6a68b1b40c411ee4ba1bfc5f41f9298564c5d302f3342487d9e2b04e71b253a60c79f04014c862f413dcc52326ab30a3ad996d30a19526fec99ba7dac581bea8e0171320589eb79229fe52a17e088f35f58e6851617852c246d1ee3047460b3c83c552c9e9c11b646c3feff7ab3f15db504c8ee30bc28e3b462691647f98e03e74e840aa19a19d898cda54215e0aef7825a598f974edfc51b98586d333aca4099e7aeae35373842364efd2a9212ae58805bbf19338e7ffd9b6c126344fb236d02f7a5e7d5824d3985615684929442600a8ff97ddd2499523410d21cd6cf665ec528e3d1bfe445a1b4f9e6031b75c653dbc27ccb982f265d896a5f6fc4044b8c0397d9d40f0b150b4e1baaadcb887354e6dbc92e0e77c787ddaf03f3daae81133627b5ccb7bc7199da271f71ae0dab6e55ddbdc79def8754edb6d31d0cda'
-deviceId = 'ef1d9cc94635a74f'
-phone = '09015568545'
+accessToken = 'sfsefsefs'
+refreshToken = '3a6098e082238980de6f8d2ea29e076e2c60da3e39b99aecc6d4e055234b1fb577b409bc241973fbdfed9c58ddc6892f31ec5ef060fc6fdf049d1a93794576b74448253e4d68979d14941ddd0422fea96328bdb7a7037c29b680f0616c92309af4041f6243911215bf98bc02acdcc3300596c7d12366ba97256151947a822a78e94f39a811e75eef2df6eb5c86309099ac839030d4e0c27fb21dae6ee95bcf7670eb7e93d3beaf1da6f11acc115eb60c407e89846e7319ce79dfd789e0662df50e672f9e6a5662c5c42e1d17235e42ac072117a8da837e4ab5d190cadc5a47ba3e32cf9de6b89a94a292fb509e63fd3d2e91375fbfd2aba06e7cf42eede9d0fa4ca5d75314370b4e3d0e08f7a3dc1ae2d741553dffca99ce0cfddada9181d385f0e1448fe8b0b25231e6ff42696ce9808355c0c2051818d4d5cab86c7b270ff8a4052b24b40a3a74fdc39ce05fae2b5554d8594ab35bf82d10b08038c4660e7f820f54ca1ec725759d5970a3aff96249c9fe2b00cdb192da2a5cc918154470676ceea8f1112b97d5559d80edf55b6619918f259e5fc99ce91bde547a3c2a920776664bd7a7f704a20c98f157d600cf9333056cfad885a07954e3a57192cf5c655d8c782d0286127dd831ebcd9de4b885a6c2ab2db3cbd50f7370886faf00cd77015bce7e25099a3630a937f03b5e61ccd8733f972fe8be7d1f27aff4ef553f'
+deviceId = 'f6aeea4d6bea4f89'
+phone = '090155687455'
 api_key = '5e69676036907c1ee9c1b528f87ba11e'
+lang = 'en'
+content = 'text/html; charset=utf-8'
 platform = {0: 'nothing', 1: 'PlayStation 4', 2: 'Xbox One',
             3: 'nintendo switch', 4: 'PC (Microsoft Windows)'}
 ###env
 
 
-get(url + 'test')
+get(url + 'test',
+    headers={'device-id': deviceId})
 
 get(url + 'refresh_tokens',
     headers={'refresh-token': refreshToken, 'device-id': deviceId})
 
 get(url + 'version_control',  # 200 success
-    headers={'access-token': accessToken, 'device-id': deviceId}
+    headers={'device-id': deviceId}
+    )
+
+get(url + 'logout',  # 200 success
+    headers={'device-id': deviceId, 'access-token': accessToken}
     )
 
 get(url + 'user_games',  # 200 success
@@ -29,7 +36,7 @@ get(url + 'user_games',  # 200 success
 
 post(url + 'login',  # 200 success
      headers={'device-id': deviceId},
-     json={'phone': phone, 'tf': 'sdfsdfsdfsdfs'})
+     json={'phone': phone})
 
 post('https://api-v3.igdb.com/search',  # 200 success
      headers={'user-key': '5e69676036907c1ee9c1b528f87ba11e', 'Accept': 'application/json'},
@@ -37,14 +44,16 @@ post('https://api-v3.igdb.com/search',  # 200 success
 
 
 post(url + 'activate',  # 200 success, 201 new user, 404 wrong code, 406 error
-     headers={'device-id': deviceId},
-     json={'activationCode': '878835'})
+     headers={'device-id': deviceId, 'language': lang, 'content-type': content},
+     json={'activationCode': '{"$gt": undefined}', 'tf': 'sdfsdfsdfsdfs'})
 
 post(url + 'signup',  # 200 success
      headers={'device-id': 'myDeviceId9'},
-     json={'fName': 'aryan', 'lName': 'moradi', 'email': 'aryanmoradi@gmail.com', 'platform': 2})
+     json={'phone': phone, 'fName': 'aryan', 'lName': 'moradi', 'email': 'aryanmoradi@gmail.com', 'platform': 2})
 
-get(url + 'main_games')  # 200 success
+get(url + 'main_games',  # 200 success
+    headers={'device-id': deviceId}
+    )
 
 get(url + 'find?gameName=forza',
     headers={'access-token': accessToken, 'device-id': 'ef1d9cc94635a74f'}

@@ -27,7 +27,6 @@ class Aparat:
             temp_id = r.json()['data']['attributes']['tempId']
             return self.signin_password(temp_id)
         else:
-            print("signin error")
             print(r.status_code)
             print(r.json())
             return HttpResponse("signin error")

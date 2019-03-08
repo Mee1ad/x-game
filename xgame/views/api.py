@@ -3,8 +3,9 @@ from django.shortcuts import get_object_or_404
 from xgame.decorators import try_except
 from django.views import View
 from xgame.models import *
-from .Consts import Vars
+from .Consts import Vars, Validation
 from .igdb import Cache
+from xgame.threads import UploadCover
 
 
 class GameTile(Vars):
@@ -48,20 +49,7 @@ class MainGames(GameTile):
         return JsonResponse(res)
 
 
-class Search(GameTile):
-    @try_except
-    def post(self, request):
-        data = json.loads(request.body)
-        game_name = data['gameName']
-        games = Game.objects.filter(name__icontains=f'{game_name}')
-        games = self.string_to_list(games)
-        games = self.games(self, games)
-        res = {'games': games}
-        return JsonResponse(res)
-
-
 class UserGames(GameTile):
-
     @try_except
     def get(self, request):
         seller_exists = Seller.objects.filter(user_id=request.user.id).exists()
@@ -83,6 +71,8 @@ class UserGames(GameTile):
                 if cover_exists:
                     cover = Media.objects.get(type=0, table_id=game[0]['pk'])
                     game_detail['cover'] = self.media + cover.cover.url
+                else:
+                    cover_thread = UploadCover(game_detail[url], self.game.id, self.game.name)
                 my_games.append(game_detail)
         res = {'games': my_games}
         return JsonResponse(res)
@@ -180,13 +170,19 @@ class SellerDetail(Vars):
         return JsonResponse(res)
 
 
-class AddReview(View):
+class AddReview(Vars, Validation):
     @try_except
     def post(self, request):
         data = json.loads(request.body)
+        valid = {'text': self.validation('text', data['text']),
+                 'rate': self.validation('rate', data['rate']),
+                 'gameId': self.validation('id', data['gameId'])}
+        for key, value in valid.items():
+            if "no match" in value:
+                return JsonResponse({'message': f'{key} ' + request.response['invalid']})
         comment = Comment(text=data['text'], rate=data['rate'], game_id=data['gameId'], user_id=request.user.id)
         comment.save()
-        res = {'message': "Comment Successfully Added"}
+        res = {'message': request.response['add_review']}
         return JsonResponse(res, status=201)
 
 
@@ -207,5 +203,5 @@ class AddSell(Cache):
             if image is not None:
                 media = Media(table_id=sell.id, seller_photos=image, type=3)
                 media.save()
-        res = {"message": "Uploaded Successfully"}
+        res = {"message": request.response['add_sell']}
         return JsonResponse(res)
