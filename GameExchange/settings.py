@@ -36,12 +36,15 @@ AUTH_USER_MODEL = 'xgame.User'
 INSTALLED_APPS = [
     'xgame.apps.XgameConfig',
     'django_mysql',
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fcm_django',
+    'jet.dashboard',
+    'jet',
+    'django.contrib.admin',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +56,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'xgame.AuthMiddleware.AuthMiddleware'
 ]
+
+FCM_DJANGO_SETTINGS = {
+        "FCM_SERVER_KEY": "AAAAYNMFHZc:APA91bEiQDQBZlmq1fIQCFCRil7RKcLJon-rEhK7tA5ARUSAujdOMS0rDYfWpKe8gJxPL3S-hwOiJ2Pj8K-rdnDaBvSa6IelTy14h7xWBQd26fnEjLedDlJe1OOab2dElFAflQ-YZjqL",
+        "ONE_DEVICE_PER_USER": True,
+        "DELETE_INACTIVE_DEVICES": False,
+}
 
 ROOT_URLCONF = 'GameExchange.urls'
 

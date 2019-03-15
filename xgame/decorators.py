@@ -16,5 +16,5 @@ def try_except(func):
             type = sys.exc_info()[0].__name__
             fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
             trace = {'Type': type, 'Description': f'{exc_obj}', 'File': fname, 'Line': exc_tb.tb_lineno}
-            return JsonResponse(trace)
+            return JsonResponse(trace, status=500)
     return wrapper

@@ -5,6 +5,10 @@ from django.db import models
 import json
 from django.contrib.auth.validators import UnicodeUsernameValidator
 
+from io import BytesIO
+from PIL import Image
+from django.core.files import File
+
 
 class Game(Model):
     def __str__(self):
@@ -46,19 +50,19 @@ class Game(Model):
 
 
 class User(AbstractUser):
-    # def __str__(self):
-    #     return self.username
+    def __str__(self):
+        return self.username
 
     username = models.CharField(max_length=150, verbose_name='username',
                                 validators=[UnicodeUsernameValidator()], unique=True, null=True, blank=True)
     phone = models.CharField(max_length=13, unique=True)
-    device_id = models.CharField(max_length=127, unique=True)
+    device_id = models.CharField(max_length=127)
     platform = models.SmallIntegerField(null=True, blank=True)
     is_active = models.BooleanField(default=False)
     address = models.TextField(null=True, blank=True)
     location = models.CharField(max_length=255, null=True, blank=True)
     activation_code = models.CharField(max_length=7, null=True, blank=True)
-    activation_expire = models.DateTimeField()
+    activation_expire = models.DateTimeField(null=True, blank=True)
     access_token = models.TextField(max_length=1023, null=True, blank=True)
     refresh_token = models.TextField(max_length=1023, null=True, blank=True)
     firebase_id = models.TextField()
@@ -79,7 +83,6 @@ class Seller(Model):
     description = models.TextField(default="", blank=True)
     location = models.CharField(max_length=255)
     address = models.TextField(default="", blank=True)
-    city = models.CharField(default="", max_length=255)
     phone = models.CharField(max_length=13)
     new = models.BooleanField(default=False)
     price = models.IntegerField()

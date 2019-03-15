@@ -13,7 +13,7 @@ import dataset
 import os
 from django.http import JsonResponse
 import re
-
+from fcm_django.models import FCMDevice
 
 activate(settings.TIME_ZONE)
 
@@ -23,10 +23,12 @@ class Language:
         self.en = {'add_review': "Comment Successfully Added", 'add_sell': 'Uploaded Successfully',
                    'login': 'Login Successfully', 'invalid': 'is invalid',
                    'activate_new_user': 'Please Fill Data To Complete Your Signup Process', 'wrong_code': 'Code Not Found',
-                   '401': 'Unauthenticated', 'logout': 'successfully signed out'}
+                   '401': 'Unauthenticated', 'logout': 'successfully signed out', 'sign_up': 'Profile Updated',
+                   'bad_game': 'Somthing is wrong with this game'}
         self.fa = {'add_review': "نقد شما ذخیره شد", 'add_sell': 'بازی به فروشگاه اضافه شد', 'login': 'خوش آمدید',
                    'activate_new_user': 'برای کامل کردن ثبت نام لصفا فرم را پر کنید', 'wrong_code': 'کد فعالسازی اشتباه است',
-                   '401': 'کاربر نامعتبر میباشد', 'logout': 'خروج موفق', 'invalid': 'نامعتبر است'}
+                   '401': 'کاربر نامعتبر میباشد', 'logout': 'خروج موفق', 'invalid': 'نامعتبر است', 'sign_up': 'پروفایل بروزرسانی شد',
+                   'bad_game': 'متاسفانه در پردازش این بازی مشکلی رخ داده است'}
 
 
 class Vars(View):
@@ -41,7 +43,7 @@ class Vars(View):
     image_url = 'https://images.igdb.com/igdb/image/upload/t_720p/'
     screenshot = 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/'
     cover = 'https://images.igdb.com/igdb/image/upload/t_720p/'
-    media = 'http://192.168.1.95'
+    media = 'http://192.168.1.95:81'
     # media = 'XGame.pythonanywhere.com'
     user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)' \
                  ' Chrome/72.0.3626.119 Safari/537.36'
@@ -61,22 +63,24 @@ class Vars(View):
         s = serializers.serialize("json", string)
         s = s.replace('false', 'False').replace('true', 'True').replace('null', 'None')
         s = ast.literal_eval(s)
+        list = []
         if s:
             for obj in s:
                 obj['fields']['id'] = obj['pk']
-            if 'price' in s[0]['fields']:
-                for obj in s:
-                    price = obj['fields']['price']
+                list.append(obj['fields'])
+            if 'price' in list[0]:
+                for obj in list:
+                    price = obj['price']
                     if price < 1000000:
-                        obj['fields']['price'] = f"{int(price / 1000)}K"
+                        obj['price'] = f"{int(price / 1000)}K"
                     else:
-                        obj['fields']['price'] = f"{int(price / 1000000) if price % 1000000 == 0 else price / 1000000}M"
+                        obj['price'] = f"{int(price / 1000000) if price % 1000000 == 0 else price / 1000000}M"
 
-            if 'created_at' in s[0]['fields']:
-                for obj in s:
-                    obj['fields']['created_at'] = self.datetime_serializer(obj['fields']['created_at'])
-                    obj['fields']['updated_at'] = self.datetime_serializer(obj['fields']['updated_at'])
-        return s
+            if 'created_at' in list[0]:
+                for obj in list:
+                    obj['created_at'] = self.datetime_serializer(obj['created_at'])
+                    obj['updated_at'] = self.datetime_serializer(obj['updated_at'])
+        return list
 
     def datetime_serializer(self, time):
         time = time.replace('T', ', ')
@@ -90,13 +94,19 @@ class Vars(View):
         img_temp.flush()
         return img_temp
 
+    def get_staff(self):
+        staff = User.objects.filter(is_staff=True, is_active=True)
+        ids = [st.pk for st in staff]
+        staff = FCMDevice.objects.filter(user_id__in=ids)
+        return staff
+
 
 class Validation(View):
 
     def __init__(self):
         super().__init__()
         self.game_name_pattern = r'^\w+\d*$'
-        self.name_pattern = r'^([a-z آ-ی 0-9]+)$'
+        self.name_pattern = r'^([A-z 0-9]+)$'
         self.phone_pattern = r'^(09[0-9]{9})$'
         self.activation_code_pattern = r'^\d{6}$'
         self.email_pattern = r'^\w+.*-*@\w+.com$'

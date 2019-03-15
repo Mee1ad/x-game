@@ -17,6 +17,10 @@ class AuthMiddleware(Language):
         # One-time configuration and initialization.
 
     def __call__(self, request):
+        app_name = resolve(request.path_info).app_name
+        if app_name == 'admin' or 'jet' and app_name != '':
+            response = self.get_response(request)
+            return response
         ip = request.META['REMOTE_ADDR']
         filename = os.path.join(settings.BASE_DIR + '/logs/info', 'info.log')
         file = open(filename, "a")
@@ -27,7 +31,9 @@ class AuthMiddleware(Language):
         refresh_token = request.META.get('HTTP_REFRESH_TOKEN')
         lang = request.META.get('HTTP_LANGUAGE')
         user_agent = request.META.get('HTTP_OS')
-
+        # print('TCL: ', request.META.get('HTTP_TCL'))
+        # print('VCL: ', request.META.get('HTTP_VCL'))
+        # print('VCL2: ', request.META.get('HTTP_VCL2'))
         def f(x):
             return {
                 'en': self.en,
@@ -37,7 +43,6 @@ class AuthMiddleware(Language):
             request.response = f(lang)
         except Exception:
             request.response = self.en
-        current_url = resolve(request.path_info).url_name
         user_exist = User.objects.filter(device_id=device_id, refresh_token=refresh_token,
                                          refresh_token_expire__gte=timezone.now(), is_active=1).exists()
         if user_exist:
@@ -56,11 +61,12 @@ class AuthMiddleware(Language):
         else:
             request.user = "guest"
             # BruteForce.check_ip_user(request, current_url, ip, 4, 1)
+            current_url = resolve(request.path_info).url_name
             if current_url in required_auth:
                 return JsonResponse({"message": "Unauthorized"}, status=401)
 
         response = self.get_response(request)
-        sleep(2)
+        sleep(.5)
         # Code to be executed for each request/response after
         # the view is called.
 

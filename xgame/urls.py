@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import auth, igdb, api
+from .views import auth, igdb, api, admin
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -19,6 +19,10 @@ urlpatterns = [
     path('find', igdb.Find.as_view(), name='find'),
     path('add_seller', api.AddSell.as_view(), name='add_seller'),
     path('user_games', api.UserGames.as_view(), name='user_games'),
+
+
+    path('admin/new_seller', admin.NewSeller.as_view(), name='new_seller'),
+    path('admin/accept_seller', admin.AcceptSeller.as_view(), name='accept_seller'),
 ]
 
 required_auth = ['add_review', 'seller_detail', 'find', 'add_seller', 'user_games', 'refresh_tokens', 'logout']
